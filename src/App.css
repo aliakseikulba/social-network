@@ -14,7 +14,7 @@
 
 .header {
     grid-area: header;
-    background-color: #000a16;
+    background-color: #000811;
 }
 
 .header img {
@@ -24,7 +24,7 @@
 
 .nav {
     grid-area: nav;
-    background-color: #000a16;
+    background-color: #000811;
     color: #ffffff;
 }
 
@@ -36,6 +36,6 @@
 
 .content {
     grid-area: content;
-    background-color: #000a16;
+    background-color: #000811;
     color: #ffffff;
 }

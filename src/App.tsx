@@ -1,26 +1,14 @@
 import React from 'react';
 import './App.css';
 import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 
 
 const App = () => {
   return (
     <div className='app-wrapper'>
-     <Header />
-      <nav className='nav'>
-        <div>
-          <a href="#">Profile</a>
-        </div>
-        <div>
-          <a href="#">Messages</a>
-        </div>
-        <div>
-          <a href="#">News</a>
-        </div>
-        <div>
-          <a href="#">Music</a>
-        </div>
-      </nav>
+      <Header/>
+      <Navbar/>
       <div className='content'>
         <div>
           <img src="https://bernardmarr.com/img/30%20Real%20Examples%20Of%20Blockchain%20Technology%20In%20Practice.png" alt="content logo"/>

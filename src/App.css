@@ -1,5 +1,41 @@
-ul li {
-    font-family: Roboto;
-    font-size: 36px;
-    list-style: none;
+.app-wrapper {
+    display: grid;
+
+    grid-template-areas:
+"header header"
+"nav content";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 10px;
+
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.header {
+    grid-area: header;
+    background-color: #1a1b22;
+}
+
+.header img {
+    width: 60px;
+    height: 60px;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: #1a1b22;
+    color: #ffffff;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.content {
+    grid-area: content;
+    background-color: #1a1b22;
+    color: #ffffff;
 }

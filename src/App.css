@@ -12,30 +12,6 @@
     width: 1200px;
 }
 
-.header {
-    grid-area: header;
-    background-color: #000811;
-}
 
-.header img {
-    width: 60px;
-    height: 60px;
-}
 
-.nav {
-    grid-area: nav;
-    background-color: #000811;
-    color: #ffffff;
-}
 
-.nav a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 24px;
-}
-
-.content {
-    grid-area: content;
-    background-color: #000811;
-    color: #ffffff;
-}

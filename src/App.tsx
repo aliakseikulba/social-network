@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
+import Header from "./components/Header";
 
 
 const App = () => {
   return (
     <div className='app-wrapper'>
-     <header className='header'>
-       <img src="https://www.logo.wine/a/logo/Ethereum/Ethereum-Icon-Purple-Logo.wine.svg" alt="logo"/>
-     </header>
+     <Header />
       <nav className='nav'>
         <div>
           <a href="#">Profile</a>

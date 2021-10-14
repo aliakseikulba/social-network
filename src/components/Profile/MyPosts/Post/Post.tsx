@@ -1,18 +1,21 @@
 import React from 'react';
 import styles from './Post.module.scss'
 
-const Post = () => {
+type PostPropsType = {
+  message: string
+  likesCount: number
+}
+
+const Post: React.FC<PostPropsType> = (props) => {
   return (
     <div className={styles.item}>
       <img src="https://freesvg.org/img/abstract-user-flat-1.png" alt="user photo"/>
-      Post
+      {props.message}
       <div>
-          <span>
-            like
-          </span>
+          <span>{props.likesCount} likes</span>
       </div>
     </div>
   );
-};
+}
 
 export default Post;

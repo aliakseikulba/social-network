@@ -13,12 +13,11 @@ const MyPosts = () => {
         </div>
       </div>
       <div className={styles.posts}>
-        <Post />
-        <Post />
-        <Post />
+        <Post message='Hi, how are you?' likesCount={2}/>
+        <Post message="It's my first post" likesCount={5}/>
       </div>
     </div>
   );
-};
+}
 
 export default MyPosts;

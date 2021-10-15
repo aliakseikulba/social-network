@@ -5,7 +5,7 @@ import styles from './Dialogs.module.scss';
 const Dialogs = () => {
   return (
     <div>
-      Dialogs
+      DIALOGS
     </div>
   );
 };

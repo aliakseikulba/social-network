@@ -1,6 +1,7 @@
 .nav {
   grid-area: nav;
-  background-color: #000811;
+  //background-color: #000811;
+  background-color: #1a1b22;
   color: #ffffff;
 
   .item {
@@ -10,6 +11,7 @@
   }
 
   .active {
-    color: #CCCCFF;
+    //color: #CCCCFF;
+    color: #5D3FD3;
   }
 }

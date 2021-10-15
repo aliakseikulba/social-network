@@ -12,6 +12,7 @@
     width: 1200px;
 }
 
-
-
-
+.app-wrapper-content {
+    grid-area: content;
+    color: #000811;
+}

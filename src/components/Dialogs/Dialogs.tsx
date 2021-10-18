@@ -1,21 +1,32 @@
 import React from 'react';
-import styles from './Dialogs.module.scss';
+import { NavLink } from 'react-router-dom';
+import s from './Dialogs.module.scss';
 
 
 const Dialogs = () => {
   return (
-    <div className={styles.dialogs}>
-      <div className={styles.dialogsItems}>
-        <div className={styles.dialog + '' + styles.active}>User 1</div>
-        <div className={styles.dialog}>User 2</div>
-        <div className={styles.dialog}>User 3</div>
-        <div className={styles.dialog}>User 4</div>
-        <div className={styles.dialog}>User 5</div>
+    <div className={s.dialogs}>
+      <div className={s.dialogsItems}>
+        <div className={s.dialog}>
+         <NavLink to='/dialogs/1'> User 1</NavLink>
+        </div>
+        <div className={s.dialog}>
+          <NavLink to='/dialogs/2'> User 2</NavLink>
+        </div>
+        <div className={s.dialog}>
+          <NavLink to='/dialogs/3'> User 3</NavLink>
+        </div>
+        <div className={s.dialog}>
+          <NavLink to='/dialogs/4'> User 4</NavLink>
+        </div>
+        <div className={s.dialog}>
+          <NavLink to='/dialogs/5'> User 5</NavLink>
+        </div>
       </div>
-      <div className={styles.messages}>
-        <div className={styles.message}>Hello, how are you?</div>
-        <div className={styles.message}>Tomorrow at 9.</div>
-        <div className={styles.message}>Welcome to our shop.</div>
+      <div className={s.messages}>
+        <div className={s.message}>Hello, how are you?</div>
+        <div className={s.message}>Tomorrow at 9.</div>
+        <div className={s.message}>Welcome to our shop.</div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Dialogs.module.scss';
-import DialogsItem from './DialogsItem/DialogsItem';
+import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
 
@@ -21,7 +21,7 @@ const Dialogs = () => {
     {id: 3, message: 'Have a nice day!'}
   ];
 
-  const dialogsItem = dialogsData.map(d => <DialogsItem id={d.id} name={d.name}/>);
+  const dialogsItem = dialogsData.map(d => <DialogItem id={d.id} name={d.name}/>);
   const messagesItem = messageData.map(m => <Message message={m.message}/>);
 
   return (

@@ -4,9 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+export type PostItemType = {
+  id: number
+  message: string
+  likesCount: number
+}
+
+export type PostsType = Array<PostItemType>
+
+const posts = [
+  {id: 1, message: 'Hi, how are you?', likesCount: 2},
+  {id: 2, message: 'It\'s my first post', likesCount: 5},
+];
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App posts={posts}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

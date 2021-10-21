@@ -1,17 +1,15 @@
 import React from 'react';
 import styles from './MyPosts.module.scss';
 import Post from './Post/Post';
-import {PostItemType} from '../Profile';
+import {PostsType} from '../../../index';
 
 type MyPostsPropsType = {
-  data: PostItemType[]
+  posts: PostsType
 }
 
-const MyPosts = (props: MyPostsPropsType) => {
+const MyPosts = ({posts}: MyPostsPropsType) => {
 
-  const {data} = props;
-
-  const postsItems = data
+  const postsItems = posts
     .map(p => <Post message={p.message} likesCount={p.likesCount}/>);
 
   return (

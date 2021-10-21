@@ -16,7 +16,7 @@ type AppPropsType = {
   messageData: MessageDataType
 }
 
-const App = (props: AppPropsType) => {
+const App: React.FC<AppPropsType> = ({posts, dialogsData, messageData}) => {
 
   return (
     <BrowserRouter>
@@ -24,11 +24,11 @@ const App = (props: AppPropsType) => {
         <Header/>
         <Navbar/>
         <div className="app-wrapper-content">
-          <Route path="/profile">
-            <Profile posts={props.posts}/>
+          <Route path="/profile" >
+            <Profile posts={posts}/>
           </Route>
           <Route path="/dialogs">
-            <Dialogs dialogsData={props.dialogsData} messageData={props.messageData}/>
+            <Dialogs dialogsData={dialogsData} messageData={messageData}/>
           </Route>
           <Route path="/news">
             <News/>

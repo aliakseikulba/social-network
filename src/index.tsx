@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 export type PostItemType = {
-  id: number
+  id?: number
   message: string
   likesCount: number
 }

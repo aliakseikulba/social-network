@@ -2,11 +2,9 @@ import React from 'react';
 import styles from '../Dialogs.module.scss';
 import {MessageDataItemType} from '../../../index';
 
-type MessageType = MessageDataItemType;
-
-const Message = (props: MessageType) => {
+const Message: React.FC<MessageDataItemType> = ({message}) => {
   return (
-    <div className={styles.message}>{props.message}</div>
+    <div className={styles.message}>{message}</div>
   );
 };
 

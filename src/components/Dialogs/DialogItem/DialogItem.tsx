@@ -3,15 +3,13 @@ import styles from '../Dialogs.module.scss';
 import {NavLink} from 'react-router-dom';
 import {DialogsDataItemType} from '../../../index';
 
-type DialogItemPropsType = DialogsDataItemType;
+const DialogItem: React.FC<DialogsDataItemType> = ({id,name}) => {
 
-const DialogItem = (props: DialogItemPropsType) => {
-
-  let path = `/dialogs/${props.id}`;
+  let path = `/dialogs/${id}`;
 
   return (
     <div className={styles.dialog}>
-      <NavLink to={path}>{props.name}</NavLink>
+      <NavLink to={path}>{name}</NavLink>
     </div>
   );
 };

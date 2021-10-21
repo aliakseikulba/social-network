@@ -7,7 +7,7 @@ type MyPostsPropsType = {
   posts: PostsType
 }
 
-const MyPosts = ({posts}: MyPostsPropsType) => {
+const MyPosts: React.FC<MyPostsPropsType> = ({posts}) => {
 
   const postsItems = posts
     .map(p => <Post message={p.message} likesCount={p.likesCount}/>);

@@ -9,10 +9,10 @@ type DialogsPropsType = {
   messageData: MessageDataType
 }
 
-const Dialogs = (props: DialogsPropsType) => {
+const Dialogs: React.FC<DialogsPropsType> = ({dialogsData, messageData}) => {
 
-  const dialogsItem = props.dialogsData.map(d => <DialogItem id={d.id} name={d.name}/>);
-  const messagesItem = props.messageData.map(m => <Message message={m.message}/>);
+  const dialogsItem = dialogsData.map(d => <DialogItem id={d.id} name={d.name}/>);
+  const messagesItem = messageData.map(m => <Message message={m.message}/>);
 
   return (
     <div className={styles.dialogs}>

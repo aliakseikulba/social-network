@@ -7,7 +7,7 @@ type ProfilePropsType = {
   posts: PostsType
 }
 
-const Profile = ({posts}: ProfilePropsType) => {
+const Profile: React.FC<ProfilePropsType> = ({posts}) => {
 
   return (
     <div>

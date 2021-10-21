@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Dialogs.module.scss';
+import styles from './Dialogs.module.scss';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
@@ -25,11 +25,11 @@ const Dialogs = () => {
   const messagesItem = messageData.map(m => <Message message={m.message}/>);
 
   return (
-    <div className={s.dialogs}>
-      <div className={s.dialogsItems}>
+    <div className={styles.dialogs}>
+      <div className={styles.dialogsItems}>
         {dialogsItem}
       </div>
-      <div className={s.messages}>
+      <div className={styles.messages}>
         {messagesItem}
       </div>
     </div>

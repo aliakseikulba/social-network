@@ -1,20 +1,22 @@
 import React from 'react';
-import s from './MyPosts.module.scss';
+import styles from './MyPosts.module.scss';
 import Post from './Post/Post';
+import {PostItemType} from '../Profile';
 
-const MyPosts = () => {
+type MyPostsPropsType = {
+  data: PostItemType[]
+}
 
-  const posts = [
-    {id: 1, message: 'Hi, how are you?', likesCount: 2},
-    {id: 2, message: 'It\'s my first post', likesCount: 5},
-  ];
+const MyPosts = (props: MyPostsPropsType) => {
 
-  const postsItems = posts
+  const {data} = props;
+
+  const postsItems = data
     .map(p => <Post message={p.message} likesCount={p.likesCount}/>);
 
   return (
     <div>
-      <div className={s.postsBlock}>
+      <div className={styles.postsBlock}>
         <h3>My posts</h3>
         <div>
           <div>
@@ -25,7 +27,7 @@ const MyPosts = () => {
           </div>
         </div>
       </div>
-      <div className={s.posts}>
+      <div className={styles.posts}>
         {postsItems}
       </div>
     </div>

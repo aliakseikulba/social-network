@@ -8,10 +8,12 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import {PostsType} from './index';
+import {DialogsDataType, MessageDataType, PostsType} from './index';
 
 type AppPropsType = {
   posts: PostsType
+  dialogsData: DialogsDataType
+  messageData: MessageDataType
 }
 
 const App = (props: AppPropsType) => {
@@ -26,7 +28,7 @@ const App = (props: AppPropsType) => {
             <Profile posts={props.posts}/>
           </Route>
           <Route path="/dialogs">
-            <Dialogs/>
+            <Dialogs dialogsData={props.dialogsData} messageData={props.messageData}/>
           </Route>
           <Route path="/news">
             <News/>

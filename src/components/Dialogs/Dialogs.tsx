@@ -2,18 +2,17 @@ import React from 'react';
 import styles from './Dialogs.module.scss';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import {DialogsDataType, MessageDataType} from '../../redux/state';
+import {MessagesPageType} from '../../redux/state';
 
 
 type DialogsPropsType = {
-  dialogsData: DialogsDataType
-  messageData: MessageDataType
+  state: MessagesPageType
 }
 
-const Dialogs: React.FC<DialogsPropsType> = ({dialogsData, messageData}) => {
+const Dialogs: React.FC<DialogsPropsType> = ({state}) => {
 
-  const dialogsItem = dialogsData.map(d => <DialogItem id={d.id} name={d.name}/>);
-  const messagesItem = messageData.map(m => <Message message={m.message}/>);
+  const dialogsItem = state.dialogsData.map(d => <DialogItem id={d.id} name={d.name}/>);
+  const messagesItem = state.messageData.map(m => <Message message={m.message}/>);
 
   return (
     <div className={styles.dialogs}>

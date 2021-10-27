@@ -29,9 +29,23 @@ export type MessagesPageType = {
   messageData: MessageDataType
 }
 
+
+export type SidebarType = {
+  friendsData: FriendsDataType
+}
+
+export type FriendsDataType = FriendItemType[];
+
+export type FriendItemType = {
+  id: number
+  name: string
+  surname: string
+}
+
 export type StateType = {
   profilePage: ProfilePageType
   messagesPage: MessagesPageType
+  sideBar: SidebarType
 }
 
 const state = {
@@ -55,6 +69,13 @@ const state = {
       {id: 2, message: 'Tomorrow at 9.'},
       {id: 3, message: 'Have a nice day!'}
     ],
+  },
+  sideBar: {
+    friendsData: [
+      {id: 1, name: 'Name', surname: 'Surname'},
+      {id: 1, name: 'Name', surname: 'Surname'},
+      {id: 1, name: 'Name', surname: 'Surname'},
+    ]
   }
 }
 

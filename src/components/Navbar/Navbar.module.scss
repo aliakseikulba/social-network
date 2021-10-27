@@ -1,13 +1,18 @@
+.wrapper {
+  border-left: 1px solid #1a1b22;
+  border-right: 1px solid #1a1b22;
+  height: 450px;
+  width: 200px;
+}
+
 .nav {
   grid-area: nav;
   background-color: #ffffff;
-  border-left: 1px solid #1a1b22;
-  border-right: 1px solid #1a1b22;
   padding: 20px;
 }
 
 .item a {
-  font-size: 24px;
+  font-size: 26px;
   text-decoration: none;
   color: #1a1b22;
   transition: 0.2s;
@@ -19,5 +24,48 @@
 }
 
 .item .activeLink {
-  color: #913EF6;
+  color: #005CFF;
+}
+
+.friendsBlock {
+  margin-top: 100px;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.friendsBlockTitle {
+  align-self: center;
+  color: #1a1b22;
+  font-size: 26px;
+}
+
+.friendsData {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.friendItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.friendPhoto {
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.friendName {
+  text-align: center;
+  font-size: 12px;
+  transition: 0.2s;
+
+  &:hover {
+    color: #005CFF;
+    transition: 0.2s;
+  }
 }

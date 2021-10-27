@@ -21,7 +21,7 @@ const App: React.FC<AppPropsType> = ({state}) => {
     <BrowserRouter>
       <div className="app-wrapper">
         <Header/>
-        <Navbar/>
+        <Navbar state={state.sideBar}/>
         <div className="app-wrapper-content">
           <Switch>
           <Route path="/profile" >

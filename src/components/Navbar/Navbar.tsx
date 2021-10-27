@@ -2,21 +2,13 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import styles from './Navbar.module.scss';
 import {SidebarType} from '../../redux/state';
+import Friends from '../Friends/Friends';
 
 type NavbarPropsType = {
   state: SidebarType
 }
 
 const Navbar: React.FC<NavbarPropsType> = ({state}) => {
-
-  const friendItemRender = state.friendsData.map(f => {
-    return <div className={styles.friendItem}>
-      <div className={styles.friendPhoto}>
-        <img src="https://freesvg.org/img/abstract-user-flat-1.png"/>
-      </div>
-      <div className={styles.friendName}>{f.name} {f.surname}</div>
-    </div>;
-  });
 
   return (
     <div className={styles.wrapper}>
@@ -37,12 +29,7 @@ const Navbar: React.FC<NavbarPropsType> = ({state}) => {
           <NavLink to="/settings" activeClassName={styles.activeLink}>Settings</NavLink>
         </div>
       </nav>
-      <div className={styles.friendsBlock}>
-        <div className={styles.friendsBlockTitle}>Friends</div>
-        <div className={styles.friendsData}>
-          {friendItemRender}
-        </div>
-      </div>
+    <Friends state={state}/>
     </div>
   );
 };

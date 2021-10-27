@@ -42,6 +42,7 @@ export type FriendItemType = {
   id: number
   name: string
   surname: string
+  friendPhoto: string
 }
 
 export type StateType = {
@@ -78,9 +79,12 @@ const state = {
   },
   sideBar: {
     friendsData: [
-      {id: 1, name: 'Name', surname: 'Surname'},
-      {id: 1, name: 'Name', surname: 'Surname'},
-      {id: 1, name: 'Name', surname: 'Surname'},
+      {id: 1, name: 'Name', surname: 'Surname',
+        friendPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'},
+      {id: 1, name: 'Name', surname: 'Surname',
+        friendPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'},
+      {id: 1, name: 'Name', surname: 'Surname',
+        friendPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'},
     ]
   }
 }

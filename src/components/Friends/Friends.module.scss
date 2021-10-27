@@ -1,0 +1,42 @@
+.friendsBlock {
+  margin-top: 100px;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.friendsBlockTitle {
+  align-self: center;
+  color: #1a1b22;
+  font-size: 26px;
+}
+
+.friendsData {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.friendItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.friendPhoto {
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.friendName {
+  text-align: center;
+  font-size: 12px;
+  transition: 0.2s;
+
+  &:hover {
+    color: #005CFF;
+    transition: 0.2s;
+  }
+}

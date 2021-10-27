@@ -4,19 +4,18 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import {DialogsDataType, MessageDataType, PostsType} from './index';
+import {StateType} from './redux/state';
+
 
 type AppPropsType = {
-  posts: PostsType
-  dialogsData: DialogsDataType
-  messageData: MessageDataType
+  appState: StateType
 }
 
-const App: React.FC<AppPropsType> = ({posts, dialogsData, messageData}) => {
+const App: React.FC<AppPropsType> = ({appState}) => {
 
   return (
     <BrowserRouter>
@@ -24,11 +23,12 @@ const App: React.FC<AppPropsType> = ({posts, dialogsData, messageData}) => {
         <Header/>
         <Navbar/>
         <div className="app-wrapper-content">
+          <Switch>
           <Route path="/profile" >
-            <Profile posts={posts}/>
+            <Profile posts={appState.posts}/>
           </Route>
           <Route path="/dialogs">
-            <Dialogs dialogsData={dialogsData} messageData={messageData}/>
+            <Dialogs dialogsData={appState.dialogsData} messageData={appState.messageData}/>
           </Route>
           <Route path="/news">
             <News/>
@@ -39,6 +39,7 @@ const App: React.FC<AppPropsType> = ({posts, dialogsData, messageData}) => {
           <Route path="/settings">
             <Settings/>
           </Route>
+          </Switch>
         </div>
       </div>
     </BrowserRouter>

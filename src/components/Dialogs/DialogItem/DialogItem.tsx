@@ -4,12 +4,13 @@ import {NavLink} from 'react-router-dom';
 import {DialogsDataItemType} from '../../../redux/state';
 
 
-const DialogItem: React.FC<DialogsDataItemType> = ({id,name}) => {
+const DialogItem: React.FC<DialogsDataItemType> = ({id,name, userPhoto}) => {
 
   let path = `/dialogs/${id}`;
 
   return (
     <div className={styles.dialog}>
+      <img src={userPhoto}/>
       <NavLink to={path}>{name}</NavLink>
     </div>
   );

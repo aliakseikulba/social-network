@@ -11,8 +11,9 @@ type DialogsPropsType = {
 
 const Dialogs: React.FC<DialogsPropsType> = ({state}) => {
 
-  const dialogsItem = state.dialogsData.map(d => <DialogItem id={d.id} name={d.name}/>);
-  const messagesItem = state.messageData.map(m => <Message message={m.message}/>);
+  const dialogsItem = state.dialogsData
+    .map(d => <DialogItem id={d.id} name={d.name} userPhoto={d.userPhoto}/>);
+  const messagesItem = state.messageData.map(m => <Message message={m.message} status={m.status} />);
 
   return (
     <div className={styles.dialogs}>

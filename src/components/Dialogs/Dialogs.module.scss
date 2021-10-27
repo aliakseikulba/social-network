@@ -5,20 +5,56 @@
 }
 
 .dialogsItems {
-  color: #1a1b22;
+  width: 150px;
   padding: 20px;
-  font-size: 16px;
 }
 
 .dialog {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
 
+  img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
+
+  a {
+    color: #1a1b22;
+    text-decoration: none;
+    font-size: 16px;
+    &:hover {
+      color: #005CFF;
+    }
+  }
 }
 
 .messages {
-  color: #1a1b22;
   padding: 20px;
-  font-size: 16px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 .message {
+  max-width: 300px;
+  min-height: 25px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.recipient {
+align-self: flex-start;
+  background-color: #004CDB ;
+  color: #ffffff;
+  border: 1px solid #004CDB ;
+  border-radius: 20px;
+}
+
+.sender {
+  align-self: flex-end;
+  background-color: #E7EFFF;
+  color: #1a1b22;
+  border-radius: 20px;
 }

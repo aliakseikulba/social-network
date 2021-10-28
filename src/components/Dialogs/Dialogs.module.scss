@@ -58,3 +58,9 @@ align-self: flex-start;
   color: #1a1b22;
   border-radius: 20px;
 }
+
+.addMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}

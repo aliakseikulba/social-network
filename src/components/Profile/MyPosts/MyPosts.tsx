@@ -20,8 +20,9 @@ const MyPosts: React.FC<MyPostsPropsType> = ({posts, addPost}) => {
     if (newPostElement.current) {
       let text = newPostElement.current.value;
       addPost(text);
+      newPostElement.current.value = '';
     }
-  }
+  };
 
   return (
     <div>

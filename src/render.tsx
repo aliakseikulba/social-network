@@ -12,8 +12,7 @@ export const rerenderEntireTree = (state: StateType) => {
     </React.StrictMode>,
     document.getElementById('root')
   );
-}
-
+};
 
 
 reportWebVitals();

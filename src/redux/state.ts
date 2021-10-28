@@ -81,25 +81,31 @@ const state = {
   },
   sideBar: {
     friendsData: [
-      {id: 1, name: 'Name', surname: 'Surname',
-        friendPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'},
-      {id: 1, name: 'Name', surname: 'Surname',
-        friendPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'},
-      {id: 1, name: 'Name', surname: 'Surname',
-        friendPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'},
+      {
+        id: 1, name: 'Name', surname: 'Surname',
+        friendPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'
+      },
+      {
+        id: 1, name: 'Name', surname: 'Surname',
+        friendPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'
+      },
+      {
+        id: 1, name: 'Name', surname: 'Surname',
+        friendPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'
+      },
     ]
   }
-}
+};
 
-export const addPost = (post:string) => {
+export const addPost = (post: string) => {
 
   const newPost = {
     id: 5,
     message: post,
     likesCount: 0
-  }
+  };
   state.profilePage.posts.push(newPost);
   rerenderEntireTree(state);
-}
+};
 
 export default state;

@@ -89,4 +89,13 @@ const state = {
   }
 }
 
+export const addPost = (post:string) => {
+  const newPost = {
+    id: 5,
+    message: post,
+    likesCount: 0
+  }
+  state.profilePage.posts.push(newPost);
+}
+
 export default state;

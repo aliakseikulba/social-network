@@ -90,6 +90,7 @@ const state = {
 }
 
 export const addPost = (post:string) => {
+
   const newPost = {
     id: 5,
     message: post,

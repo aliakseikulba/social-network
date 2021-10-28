@@ -13,16 +13,25 @@ const MyPosts: React.FC<MyPostsPropsType> = ({posts}) => {
   const postsItems = posts
     .map(p => <Post message={p.message} likesCount={p.likesCount}/>);
 
+  let newPostElement = React.createRef<HTMLTextAreaElement>();
+
+  let addPost = () => {
+    if (newPostElement.current) {
+      let text = newPostElement.current.value;
+      alert(text);
+    }
+  }
+
   return (
     <div>
       <div className={styles.postsBlock}>
         <h3>My posts</h3>
         <div>
           <div>
-            <textarea></textarea>
+            <textarea ref={newPostElement}></textarea>
           </div>
           <div>
-            <button>add post</button>
+            <button onClick={addPost}>add post</button>
           </div>
         </div>
       </div>

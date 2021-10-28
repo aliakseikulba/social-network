@@ -24,21 +24,21 @@ const App: React.FC<AppPropsType> = ({state}) => {
         <Navbar state={state.sideBar}/>
         <div className="app-wrapper-content">
           <Switch>
-          <Route path="/profile" >
-            <Profile state={state.profilePage}/>
-          </Route>
-          <Route path="/dialogs">
-            <Dialogs state={state.messagesPage} />
-          </Route>
-          <Route path="/news">
-            <News/>
-          </Route>
-          <Route path="/music">
-            <Music/>
-          </Route>
-          <Route path="/settings">
-            <Settings/>
-          </Route>
+            <Route path="/profile">
+              <Profile state={state.profilePage}/>
+            </Route>
+            <Route path="/dialogs">
+              <Dialogs state={state.messagesPage}/>
+            </Route>
+            <Route path="/news">
+              <News/>
+            </Route>
+            <Route path="/music">
+              <Music/>
+            </Route>
+            <Route path="/settings">
+              <Settings/>
+            </Route>
           </Switch>
         </div>
       </div>

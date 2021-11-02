@@ -20,7 +20,6 @@ const MyPosts: React.FC<MyPostsPropsType> = ({posts, addPost, newPostText, updat
 
   let addNewPost = () => {
       addPost();
-      updateNewPostText('');
   };
 
   const onChangeHandler = () => {

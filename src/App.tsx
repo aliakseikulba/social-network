@@ -20,6 +20,7 @@ const App: React.FC<AppPropsType> = ({state, addPost}) => {
 
   return (
     <BrowserRouter>
+      <div className="layout">
       <div className="app-wrapper">
         <Header/>
         <Navbar state={state.sideBar}/>
@@ -42,6 +43,7 @@ const App: React.FC<AppPropsType> = ({state, addPost}) => {
             </Route>
           </Switch>
         </div>
+      </div>
       </div>
     </BrowserRouter>
   );

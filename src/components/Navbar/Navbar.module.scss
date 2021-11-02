@@ -1,28 +1,27 @@
 .wrapper {
-  border-left: 1px solid #1a1b22;
-  border-right: 1px solid #1a1b22;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
   height: 450px;
   width: 200px;
 }
 
 .nav {
   grid-area: nav;
-  background-color: #ffffff;
   padding: 20px;
 }
 
 .item a {
   font-size: 26px;
   text-decoration: none;
-  color: #1a1b22;
+  color: white;
   transition: 0.2s;
 
   &:hover {
-    color: #005CFF;
+    color: #ABB2B9;
     transition: 0.2s;
   }
 }
 
 .item .activeLink {
-  color: #005CFF;
+  color: #ABB2B9;
 }

@@ -1,15 +1,20 @@
+.layout {
+    background: #360033;
+    background: -webkit-linear-gradient(to right, #0b8793, #360033);
+    background: linear-gradient(to right, #0b8793, #360033);
+    min-height: 100vh;
+}
+
 .app-wrapper {
     display: grid;
 
     grid-template-areas:
 "header header"
 "nav content";
-    grid-template-rows: 60px 1fr;
+    grid-template-rows: 200px 1fr;
     grid-template-columns: 2fr 10fr;
-    grid-gap: 10px;
 
-    margin: 0 auto;
-    width: 1200px;
+    margin: 0 120px;
 }
 
 .app-wrapper-content {

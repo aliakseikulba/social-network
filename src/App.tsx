@@ -8,15 +8,16 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import {StateType} from './redux/state';
+import {StateType, updateNewPostText} from './redux/state';
 
 
 type AppPropsType = {
   state: StateType
-  addPost: (post: string) => void
+  addPost: () => void
+  updateNewPostText: (text: string) => void
 }
 
-const App: React.FC<AppPropsType> = ({state, addPost}) => {
+const App: React.FC<AppPropsType> = ({state, addPost, updateNewPostText}) => {
 
   return (
     <BrowserRouter>
@@ -27,7 +28,7 @@ const App: React.FC<AppPropsType> = ({state, addPost}) => {
         <div className="app-wrapper-content">
           <Switch>
             <Route path="/profile">
-              <Profile state={state.profilePage} addPost={addPost}/>
+              <Profile state={state.profilePage} addPost={addPost} updateNewPostText={updateNewPostText}/>
             </Route>
             <Route path="/dialogs">
               <Dialogs state={state.messagesPage}/>

@@ -22,29 +22,29 @@ const App: React.FC<AppPropsType> = ({state, addPost, updateNewPostText}) => {
   return (
     <BrowserRouter>
       <div className="layout">
-      <div className="app-wrapper">
-        <Header/>
-        <Navbar state={state.sideBar}/>
-        <div className="app-wrapper-content">
-          <Switch>
-            <Route path="/profile">
-              <Profile state={state.profilePage} addPost={addPost} updateNewPostText={updateNewPostText}/>
-            </Route>
-            <Route path="/dialogs">
-              <Dialogs state={state.messagesPage}/>
-            </Route>
-            <Route path="/news">
-              <News/>
-            </Route>
-            <Route path="/music">
-              <Music/>
-            </Route>
-            <Route path="/settings">
-              <Settings/>
-            </Route>
-          </Switch>
+        <div className="app-wrapper">
+          <Header/>
+          <Navbar state={state.sideBar}/>
+          <div className="app-wrapper-content">
+            <Switch>
+              <Route path="/profile">
+                <Profile state={state.profilePage} addPost={addPost} updateNewPostText={updateNewPostText}/>
+              </Route>
+              <Route path="/dialogs">
+                <Dialogs state={state.messagesPage}/>
+              </Route>
+              <Route path="/news">
+                <News/>
+              </Route>
+              <Route path="/music">
+                <Music/>
+              </Route>
+              <Route path="/settings">
+                <Settings/>
+              </Route>
+            </Switch>
+          </div>
         </div>
-      </div>
       </div>
     </BrowserRouter>
   );

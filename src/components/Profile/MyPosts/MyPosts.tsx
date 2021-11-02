@@ -19,11 +19,11 @@ const MyPosts: React.FC<MyPostsPropsType> = ({posts, addPost, newPostText, updat
   let newPostElement = React.createRef<HTMLTextAreaElement>();
 
   let addNewPost = () => {
-      addPost();
+    addPost();
   };
 
   const onChangeHandler = () => {
-    if(newPostElement.current) {
+    if (newPostElement.current) {
       let text = newPostElement.current.value;
       updateNewPostText(text);
     }

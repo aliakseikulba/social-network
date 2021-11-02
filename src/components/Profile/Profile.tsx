@@ -20,7 +20,7 @@ const Profile: React.FC<ProfilePropsType> = ({state, addPost, updateNewPostText}
         newPostText={state.newPostText}
         addPost={addPost}
         updateNewPostText={updateNewPostText}
-        />
+      />
     </div>
   );
 };

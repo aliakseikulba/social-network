@@ -1,53 +1,43 @@
-import {rerenderEntireTree} from '../render';
+let rerenderEntireTree = () => {
+  console.log('state rerender');
+}
 
 export type PostItemType = {
   id?: number
   message: string
   likesCount: number
 }
-
 export type PostsType = Array<PostItemType>
-
 export type DialogsDataItemType = {
   id: number
   name: string
   userPhoto: string
 }
-
 export type DialogsDataType = Array<DialogsDataItemType>
-
 export type MessageDataItemType = {
   id?: number
   message: string
   status: string
 }
-
 export type MessageDataType = Array<MessageDataItemType>
-
 export type ProfilePageType = {
   posts: PostsType
   newPostText: string
 }
-
 export type MessagesPageType = {
   dialogsData: DialogsDataType
   messageData: MessageDataType
 }
-
-
 export type SidebarType = {
   friendsData: FriendsDataType
 }
-
 export type FriendsDataType = FriendItemType[];
-
 export type FriendItemType = {
   id: number
   name: string
   surname: string
   friendPhoto: string
 }
-
 export type StateType = {
   profilePage: ProfilePageType
   messagesPage: MessagesPageType
@@ -108,12 +98,16 @@ export const addPost = () => {
   };
   state.profilePage.posts.push(newPost);
   state.profilePage.newPostText = '';
-  rerenderEntireTree(state);
+  rerenderEntireTree();
 };
 
 export const updateNewPostText = (newText: string) => {
   state.profilePage.newPostText = newText;
-  rerenderEntireTree(state);
+  rerenderEntireTree();
 };
+
+export const subscribe = () => {
+
+}
 
 export default state;

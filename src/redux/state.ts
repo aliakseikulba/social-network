@@ -106,7 +106,7 @@ export const updateNewPostText = (newText: string) => {
   rerenderEntireTree();
 };
 
-export const subscribe = () => {
+export const subscribe = (observer: () => void) => {
 
 }
 

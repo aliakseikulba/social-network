@@ -35,8 +35,8 @@ const Dialogs: React.FC<DialogsPropsType> = ({state}) => {
         </div>
       </div>
       <div className={styles.addMessage}>
-        <textarea ref={newMessageElement}></textarea>
-        <button onClick={addMessage}>add message</button>
+        <textarea className={styles.messageTextarea} ref={newMessageElement}></textarea>
+        <button className={styles.messageButton} onClick={addMessage}>send</button>
       </div>
     </>
   );

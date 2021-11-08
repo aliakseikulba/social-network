@@ -60,7 +60,29 @@ align-self: flex-start;
 }
 
 .addMessage {
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: end;
+}
+
+.messageTextarea {
+  padding: 10px;
+  background-color: #E7EFFF;
+  border: 2px solid #ffffff;
+  outline: none;
+  resize: none;
+  width: 300px;
+  font-size: 18px;
+}
+
+.messageButton {
+  border: 1px solid #E6E6FA;
+  border-radius: 10px;
+  background-color: #E6E6FA;
+  width: 80px;
+  height: 25px;
+  outline: none;
+  margin-top: 10px;
+  font-size: 16px;
 }

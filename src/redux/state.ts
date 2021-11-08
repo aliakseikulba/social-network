@@ -1,7 +1,3 @@
-let rerenderEntireTree = () => {
-  console.log('state rerender');
-}
-
 export type PostItemType = {
   id?: number
   message: string
@@ -89,6 +85,8 @@ const state = {
   }
 };
 
+let rerenderTree = () => {}
+
 export const addPost = () => {
 
   const newPost = {
@@ -98,16 +96,16 @@ export const addPost = () => {
   };
   state.profilePage.posts.push(newPost);
   state.profilePage.newPostText = '';
-  rerenderEntireTree();
+  rerenderTree();
 };
 
 export const updateNewPostText = (newText: string) => {
   state.profilePage.newPostText = newText;
-  rerenderEntireTree();
+  rerenderTree();
 };
 
 export const subscribe = (observer: () => void) => {
-
+  rerenderTree = observer;
 }
 
 export default state;

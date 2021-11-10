@@ -1,7 +1,6 @@
 .layout {
     background: #360033;
-    background: -webkit-linear-gradient(to right, #0b8793, #360033);
-    background: linear-gradient(to right, #0b8793, #360033);
+    background: linear-gradient(to top, #0b8793, #360033);
     min-height: 100vh;
 }
 
@@ -11,7 +10,7 @@
     grid-template-areas:
 "header header"
 "nav content";
-    grid-template-rows: 200px 1fr;
+    grid-template-rows: 150px 1fr;
     grid-template-columns: 2fr 10fr;
 
     margin: 0 120px;

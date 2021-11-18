@@ -8,15 +8,16 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import {ActionsTypes, StateType} from './redux/state';
+import {ActionsTypes, StateType, StoreType} from './redux/state';
 
 
 type AppPropsType = {
   state: StateType
   dispatch: (action: ActionsTypes) => void
+  store: StoreType
 }
 
-const App: React.FC<AppPropsType> = ({state, dispatch}) => {
+const App: React.FC<AppPropsType> = ({store, state, dispatch}) => {
 
   return (
     <BrowserRouter>
@@ -31,7 +32,7 @@ const App: React.FC<AppPropsType> = ({state, dispatch}) => {
                          dispatch={dispatch}/>
               </Route>
               <Route path="/dialogs">
-                <Dialogs state={state.messagesPage}/>
+                <Dialogs store={store}/>
               </Route>
               <Route path="/news">
                 <News/>

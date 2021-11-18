@@ -7,7 +7,8 @@ import './index.css';
 let rerenderEntireTree = () => {
   ReactDOM.render(
       <App state={store.getState()}
-           dispatch={store.dispatch.bind(store)}/>,
+           dispatch={store.dispatch.bind(store)}
+           store={store}/>,
     document.getElementById('root')
   );
 };

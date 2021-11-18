@@ -39,15 +39,8 @@ export type StateType = {
   messagesPage: MessagesPageType
   sideBar: SidebarType
 }
-export type ActionAddPostType = {
-  type: 'ADD_POST'
-}
-export type ActionUpdateNewPostTextType = {
-  type: 'UPDATE-NEW-POST-TEXT'
-  newText: string
-}
-
-export type ActionsTypes = ActionAddPostType | ActionUpdateNewPostTextType;
+export type ActionsTypes =
+  ReturnType<typeof addPostActionCreator> | ReturnType<typeof UpdateNewPostTextActionCreator>;
 
 export type StoreType = {
   _state: StateType
@@ -56,6 +49,20 @@ export type StoreType = {
   getState: () => StateType
   dispatch: (action: ActionsTypes) => void
 }
+
+export const addPostActionCreator = () => {
+  return {
+    type: 'ADD_POST'
+  } as const;
+};
+
+export const UpdateNewPostTextActionCreator = (text: string) => {
+  return {
+    type: 'UPDATE-NEW-POST-TEXT',
+    newText: text
+  } as const;
+};
+
 
 export const store: StoreType = {
   _state: {

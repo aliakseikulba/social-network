@@ -1,3 +1,7 @@
+import profileReducer from './profileReducer';
+import dialogsReducer from './dialogsReducer';
+import sideBarReducer from './sideBarReducer';
+
 export type PostItemType = {
   id?: number
   message: string
@@ -20,7 +24,7 @@ export type ProfilePageType = {
   posts: PostsType
   newPostText: string
 }
-export type MessagesPageType = {
+export type DialogsPageType = {
   dialogsData: DialogsDataType
   messageData: MessageDataType
   newMessageBody: string
@@ -37,7 +41,7 @@ export type FriendItemType = {
 }
 export type StateType = {
   profilePage: ProfilePageType
-  messagesPage: MessagesPageType
+  dialogsPage: DialogsPageType
   sideBar: SidebarType
 }
 export type ActionsTypes =
@@ -65,7 +69,7 @@ export const store: StoreType = {
       ],
       newPostText: ''
     },
-    messagesPage: {
+    dialogsPage: {
       dialogsData: [
         {id: 1, name: 'User One', userPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'},
         {id: 2, name: 'User Two', userPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'},
@@ -113,28 +117,13 @@ export const store: StoreType = {
     this._onChange = observer;
   },
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      const newPost = {
-        id: 5,
-        message: this._state.profilePage.newPostText,
-        likesCount: 0
-      };
-      this._state.profilePage.posts.push(newPost);
-      this._state.profilePage.newPostText = '';
-      this._onChange();
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.newText;
-      this._onChange();
-    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-      this._state.messagesPage.newMessageBody = action.body;
-      this._onChange();
-    } else if (action.type === SEND_MESSAGE) {
-      let body = this._state.messagesPage.newMessageBody;
-      this._state.messagesPage.newMessageBody = '';
-      this._state.messagesPage.messageData.push({id: 8, message: body, status: 'sender'});
-      this._onChange();
-    }
-  },
+
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.sideBar = sideBarReducer(this._state.sideBar, action);
+
+    this._onChange();
+  }
 };
 
 export const addPostActionCreator = () => ({type: ADD_POST} as const);

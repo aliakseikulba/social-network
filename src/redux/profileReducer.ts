@@ -3,9 +3,10 @@ import {ActionsTypes, ProfilePageType} from './state';
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
-const profileReducer = (state:ProfilePageType, action:ActionsTypes) => {
+const profileReducer = (state: ProfilePageType, action: ActionsTypes) => {
 
-    if (action.type === ADD_POST) {
+  switch (action.type) {
+    case ADD_POST:
       const newPost = {
         id: 5,
         message: state.newPostText,
@@ -13,11 +14,17 @@ const profileReducer = (state:ProfilePageType, action:ActionsTypes) => {
       };
       state.posts.push(newPost);
       state.newPostText = '';
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
+      return state;
+    case UPDATE_NEW_POST_TEXT:
       state.newPostText = action.newText;
-    }
-
-  return state;
+      return state;
+    default:
+      return state;
+  }
 };
+
+export const addPostActionCreator = () => ({type: ADD_POST} as const);
+export const UpdateNewPostTextActionCreator = (text: string) =>
+  ({type: UPDATE_NEW_POST_TEXT, newText: text} as const);
 
 export default profileReducer;

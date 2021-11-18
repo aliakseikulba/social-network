@@ -1,17 +1,16 @@
 import React from 'react';
 import styles from './MyPosts.module.scss';
 import Post from './Post/Post';
-import {PostsType} from '../../../redux/state';
+import {ActionsTypes, ActionUpdateNewPostTextType, PostsType} from '../../../redux/state';
 
 
 type MyPostsPropsType = {
   posts: PostsType
   newPostText: string
-  addPost: () => void
-  updateNewPostText: (text: string) => void
+  dispatch: (action: ActionsTypes) => void
 }
 
-const MyPosts: React.FC<MyPostsPropsType> = ({posts, addPost, newPostText, updateNewPostText}) => {
+const MyPosts: React.FC<MyPostsPropsType> = ({posts,newPostText, dispatch}) => {
 
   const postsItems = posts
     .map(p => <Post message={p.message} likesCount={p.likesCount}/>);
@@ -19,13 +18,14 @@ const MyPosts: React.FC<MyPostsPropsType> = ({posts, addPost, newPostText, updat
   let newPostElement = React.createRef<HTMLTextAreaElement>();
 
   let addNewPost = () => {
-    addPost();
+    dispatch({type: 'ADD_POST'});
   };
 
-  const onChangeHandler = () => {
+  const onPostChange = () => {
     if (newPostElement.current) {
       let text = newPostElement.current.value;
-      updateNewPostText(text);
+      const action: ActionUpdateNewPostTextType = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+      dispatch(action);
     }
   };
 
@@ -38,7 +38,7 @@ const MyPosts: React.FC<MyPostsPropsType> = ({posts, addPost, newPostText, updat
             <textarea
               ref={newPostElement}
               value={newPostText}
-              onChange={onChangeHandler}/>
+              onChange={onPostChange}/>
           </div>
           <div>
             <button onClick={addNewPost}>add post</button>

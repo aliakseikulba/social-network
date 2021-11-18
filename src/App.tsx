@@ -4,23 +4,22 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {HashRouter, Route, Switch} from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import {StateType} from './redux/state';
+import {ActionsTypes, StateType} from './redux/state';
 
 
 type AppPropsType = {
   state: StateType
-  addPost: () => void
-  updateNewPostText: (text: string) => void
+  dispatch: (action: ActionsTypes) => void
 }
 
-const App: React.FC<AppPropsType> = ({state, addPost, updateNewPostText}) => {
+const App: React.FC<AppPropsType> = ({state, dispatch}) => {
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="layout">
         <div className="app-wrapper">
           <Header/>
@@ -28,7 +27,8 @@ const App: React.FC<AppPropsType> = ({state, addPost, updateNewPostText}) => {
           <div className="app-wrapper-content">
             <Switch>
               <Route path="/profile">
-                <Profile state={state.profilePage} addPost={addPost} updateNewPostText={updateNewPostText}/>
+                <Profile state={state.profilePage}
+                         dispatch={dispatch}/>
               </Route>
               <Route path="/dialogs">
                 <Dialogs state={state.messagesPage}/>
@@ -46,7 +46,7 @@ const App: React.FC<AppPropsType> = ({state, addPost, updateNewPostText}) => {
           </div>
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

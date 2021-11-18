@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
-import {HashRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
@@ -19,7 +19,7 @@ type AppPropsType = {
 const App: React.FC<AppPropsType> = ({state, dispatch}) => {
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <div className="layout">
         <div className="app-wrapper">
           <Header/>
@@ -46,7 +46,7 @@ const App: React.FC<AppPropsType> = ({state, dispatch}) => {
           </div>
         </div>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 

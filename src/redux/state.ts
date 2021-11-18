@@ -44,7 +44,7 @@ export type StoreType = {
   onChange: () => void
   addPost: () => void
   updateNewPostText: (newText: string) => void
-  subscribe: (callback: () => void) => void
+  subscribe: (observer: () => void) => void
   getState: () => StateType
 }
 
@@ -93,7 +93,7 @@ export const store = {
       ]
     }
   },
-  onChange() {
+  _onChange() {
     console.log('state changed');
   },
   addPost() {
@@ -105,14 +105,14 @@ export const store = {
     };
     this._state.profilePage.posts.push(newPost);
     this._state.profilePage.newPostText = '';
-    this.onChange();
+    this._onChange();
   },
   updateNewPostText(newText: string) {
     this._state.profilePage.newPostText = newText;
-    this.onChange();
+    this._onChange();
   },
-  subscribe(callback: () => void) {
-    this.onChange = callback;
+  subscribe(observer: () => void) {
+    this._onChange = observer;
   },
   getState() {
     return this._state;

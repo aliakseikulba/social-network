@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Friends.module.scss';
-import {SidebarType} from '../../redux/state';
+import {SidebarType} from '../../types/Types';
 
 type FriendsPropsType = {
   state: SidebarType

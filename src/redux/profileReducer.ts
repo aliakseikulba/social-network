@@ -1,4 +1,5 @@
-import {ActionsTypes, ProfilePageType} from './state';
+
+import {ActionsTypes, ProfilePageType} from '../types/Types';
 
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';

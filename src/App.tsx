@@ -9,12 +9,14 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import {ActionsTypes, StateType, StoreType} from './types/Types';
+import {AppStoreType} from './redux/redux-store';
+import {Dispatch, Store} from 'redux';
 
 
 type AppPropsType = {
   state: StateType
   dispatch: (action: ActionsTypes) => void
-  store: StoreType
+  store: Store<AppStoreType, any> & {dispatch: Dispatch}
 }
 
 const App: React.FC<AppPropsType> = ({store, state, dispatch}) => {

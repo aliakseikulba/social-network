@@ -2,8 +2,10 @@ import {combineReducers, createStore, Store} from 'redux';
 import profileReducer from './profileReducer';
 import dialogsReducer from './dialogsReducer';
 import sideBarReducer from './sideBarReducer';
-import {Dispatch} from 'redux';
 import {ActionsTypes} from '../types/Types';
+
+
+export type AppStoreType = ReturnType<typeof rootReducer>
 
 const rootReducer = combineReducers({
   profilePage: profileReducer,
@@ -11,8 +13,6 @@ const rootReducer = combineReducers({
   sideBar: sideBarReducer,
 });
 
-const store: Store<AppStoreType, ActionsTypes> & {dispatch: Dispatch} = createStore(rootReducer);
-
-export type AppStoreType = ReturnType<typeof rootReducer>
+const store: Store<AppStoreType, ActionsTypes> = createStore(rootReducer);
 
 export default store;

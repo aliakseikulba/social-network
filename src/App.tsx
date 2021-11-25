@@ -16,7 +16,7 @@ import {Dispatch, Store} from 'redux';
 type AppPropsType = {
   state: StateType
   dispatch: (action: ActionsTypes) => void
-  store: Store<AppStoreType, any> & {dispatch: Dispatch}
+  store: Store<AppStoreType, ActionsTypes>
 }
 
 const App: React.FC<AppPropsType> = ({store, state, dispatch}) => {

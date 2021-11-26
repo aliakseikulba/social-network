@@ -1,4 +1,4 @@
-import {ActionsTypes, DialogsPageType} from '../types/Types';
+import {ActionsTypes, DialogsPageType} from '../types/types';
 
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE';

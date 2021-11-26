@@ -1,5 +1,5 @@
 
-import {ActionsTypes, ProfilePageType} from '../types/Types';
+import {ActionsTypes, ProfilePageType} from '../types/types';
 
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';

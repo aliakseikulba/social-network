@@ -1,5 +1,5 @@
 
-import {ActionsTypes, SidebarType} from '../types/Types';
+import {ActionsTypes, SidebarType} from '../types/types';
 
 const initialState = {
   friendsData: [

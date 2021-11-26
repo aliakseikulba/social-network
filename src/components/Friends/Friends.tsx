@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Friends.module.scss';
-import {SidebarType} from '../../types/Types';
+import {SidebarType} from '../../types/types';
 
 type FriendsPropsType = {
   state: SidebarType

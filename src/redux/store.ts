@@ -1,7 +1,7 @@
 import profileReducer from './profileReducer';
 import dialogsReducer from './dialogsReducer';
 import sideBarReducer from './sideBarReducer';
-import {StoreType} from '../types/Types';
+import {StoreType} from '../types/types';
 
 
 export const store: StoreType = {
@@ -60,6 +60,7 @@ export const store: StoreType = {
   subscribe(observer: () => void) {
     this._callSubscriber = observer;
   },
+
   dispatch(action) {
 
     this._state.profilePage = profileReducer(this._state.profilePage, action);

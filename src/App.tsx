@@ -4,13 +4,13 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import {ActionsTypes, StateType, StoreType} from './types/Types';
+import {ActionsTypes, StateType} from './types/types';
 import {AppStoreType} from './redux/redux-store';
-import {Dispatch, Store} from 'redux';
+import {Store} from 'redux';
 
 
 type AppPropsType = {
@@ -28,24 +28,29 @@ const App: React.FC<AppPropsType> = ({store, state, dispatch}) => {
           <Header/>
           <Navbar state={state.sideBar}/>
           <div className="app-wrapper-content">
-            <Switch>
-              <Route path="/profile">
-                <Profile state={state.profilePage}
-                         dispatch={dispatch}/>
-              </Route>
-              <Route path="/dialogs">
-                <Dialogs store={store}/>
-              </Route>
-              <Route path="/news">
-                <News/>
-              </Route>
-              <Route path="/music">
-                <Music/>
-              </Route>
-              <Route path="/settings">
-                <Settings/>
-              </Route>
-            </Switch>
+            <Routes>
+              <Route path="/profile"
+                     element={
+                       <Profile state={state.profilePage}
+                                dispatch={dispatch}/>
+                     }/>
+              <Route path="/dialogs"
+                     element={
+                       <Dialogs store={store}/>
+                     }/>
+              <Route path="/news"
+                     element={
+                       <News/>
+                     }/>
+              <Route path="/music"
+                     element={
+                       <Music/>
+                     }/>
+              <Route path="/settings"
+                     element={
+                       <Settings/>
+                     }/>
+            </Routes>
           </div>
         </div>
       </div>

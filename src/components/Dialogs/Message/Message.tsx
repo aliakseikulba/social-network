@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../Dialogs.module.scss';
-import {MessageDataItemType} from '../../../types/Types';
+import {MessageDataItemType} from '../../../types/types';
 
 const Message: React.FC<MessageDataItemType> = ({message, status}) => {
 

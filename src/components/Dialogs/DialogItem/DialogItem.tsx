@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../Dialogs.module.scss';
 import {NavLink} from 'react-router-dom';
-import {DialogsDataItemType} from '../../../types/Types';
+import {DialogsDataItemType} from '../../../types/types';
 
 
 const DialogItem: React.FC<DialogsDataItemType> = ({id,name, userPhoto}) => {

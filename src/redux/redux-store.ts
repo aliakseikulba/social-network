@@ -2,7 +2,7 @@ import {combineReducers, createStore, Store} from 'redux';
 import profileReducer from './profileReducer';
 import dialogsReducer from './dialogsReducer';
 import sideBarReducer from './sideBarReducer';
-import {ActionsTypes} from '../types/Types';
+import {ActionsTypes} from '../types/types';
 
 
 export type AppStoreType = ReturnType<typeof rootReducer>

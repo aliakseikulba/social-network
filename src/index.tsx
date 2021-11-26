@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import App from './App';
 import './index.css';
-import {StateType} from './types/Types';
+import {StateType} from './types/types';
 
 let rerenderEntireTree = (state: StateType) => {
   ReactDOM.render(
-      <App state={state}
-           dispatch={store.dispatch.bind(store)}
-           store={store}/>,
+    <App state={state}
+         dispatch={store.dispatch.bind(store)}
+         store={store}/>,
     document.getElementById('root')
   );
 };
@@ -17,6 +17,6 @@ let rerenderEntireTree = (state: StateType) => {
 rerenderEntireTree(store.getState());
 
 store.subscribe(() => {
-  const state = store.getState()
-  rerenderEntireTree(state)
+  const state = store.getState();
+  rerenderEntireTree(state);
 });

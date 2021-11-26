@@ -10,28 +10,28 @@ type NavbarPropsType = {
 
 const Navbar: React.FC<NavbarPropsType> = ({state}) => {
 
-  const activeClass = ({isActive}: {isActive: boolean}) => isActive ? styles.activeLink : '';
+  const activeLinkClass = ({isActive}: { isActive: boolean }) => isActive ? styles.activeLink : '';
 
   return (
     <div className={styles.wrapper}>
       <nav className={styles.nav}>
         <div className={styles.item}>
-          <NavLink to="/profile" className={activeClass}>Profile</NavLink>
+          <NavLink to="/profile" className={activeLinkClass}>Profile</NavLink>
         </div>
         <div className={styles.item}>
-          <NavLink to="/dialogs" className={activeClass}>Messages</NavLink>
+          <NavLink to="/dialogs" className={activeLinkClass}>Messages</NavLink>
         </div>
         <div className={styles.item}>
-          <NavLink to="/news" className={activeClass}>News</NavLink>
+          <NavLink to="/news" className={activeLinkClass}>News</NavLink>
         </div>
         <div className={styles.item}>
-          <NavLink to="/music" className={activeClass}>Music</NavLink>
+          <NavLink to="/music" className={activeLinkClass}>Music</NavLink>
         </div>
         <div className={styles.item}>
-          <NavLink to="/settings" className={activeClass}>Settings</NavLink>
+          <NavLink to="/settings" className={activeLinkClass}>Settings</NavLink>
         </div>
       </nav>
-    <Friends state={state}/>
+      <Friends state={state}/>
     </div>
   );
 };

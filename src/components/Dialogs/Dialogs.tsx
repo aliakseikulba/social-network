@@ -4,12 +4,10 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from '../../redux/dialogsReducer';
 import {ActionsTypes, StoreType} from '../../types/types';
-import {AppStoreType} from '../../redux/redux-store';
-import {Dispatch, Store} from 'redux';
 
 
 type DialogsPropsType = {
-  store: Store<AppStoreType, ActionsTypes>
+  store: StoreType
 }
 
 const Dialogs: React.FC<DialogsPropsType> = ({store}) => {

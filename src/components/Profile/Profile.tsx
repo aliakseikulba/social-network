@@ -5,15 +5,15 @@ import {Store} from 'redux';
 
 
 type ProfilePropsType = {
-  store: Store
+  // store: Store
 }
 
-const Profile: React.FC<ProfilePropsType> = ({store}) => {
+const Profile: React.FC<ProfilePropsType> = () => {
 
   return (
     <div>
       <ProfileInfo/>
-      <MyPostsContainer store={store}/>
+      <MyPostsContainer />
     </div>
   );
 };

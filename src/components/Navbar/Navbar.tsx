@@ -5,10 +5,10 @@ import Friends from '../Friends/Friends';
 import {SidebarType} from '../../types/types';
 
 type NavbarPropsType = {
-  state: SidebarType
+  // state: SidebarType
 }
 
-const Navbar: React.FC<NavbarPropsType> = ({state}) => {
+const Navbar: React.FC<NavbarPropsType> = () => {
 
   return (
     <div className={styles.wrapper}>
@@ -29,7 +29,7 @@ const Navbar: React.FC<NavbarPropsType> = ({state}) => {
           <NavLink to="/settings" activeClassName={styles.activeLink}>Settings</NavLink>
         </div>
       </nav>
-      <Friends state={state}/>
+      {/*<Friends state={state}/>*/}
     </div>
   );
 };

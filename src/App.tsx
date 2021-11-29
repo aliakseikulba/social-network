@@ -10,6 +10,7 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import { Store, Dispatch } from 'redux';
 import {AppStateType} from './redux/reduxStore';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
 type AppPropsType = {
@@ -31,7 +32,7 @@ const App: React.FC<AppPropsType> = ({store, state}) => {
                 <Profile store={store}/>
               </Route>
               <Route path="/dialogs">
-                <Dialogs store={store}/>
+                <DialogsContainer store={store}/>
               </Route>
               <Route path="/news">
                 <News/>

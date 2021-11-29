@@ -18,7 +18,7 @@ type AppPropsType = {
   store: Store
 }
 
-const App: React.FC<AppPropsType> = ({store, state, dispatch}) => {
+const App: React.FC<AppPropsType> = ({store, state}) => {
   return (
     <BrowserRouter>
       <div className="layout">
@@ -28,8 +28,7 @@ const App: React.FC<AppPropsType> = ({store, state, dispatch}) => {
           <div className="app-wrapper-content">
             <Switch>
               <Route path="/profile">
-                <Profile state={state.profilePage}
-                         dispatch={dispatch}/>
+                <Profile store={store}/>
               </Route>
               <Route path="/dialogs">
                 <Dialogs store={store}/>

@@ -48,7 +48,7 @@ export type ActionsTypes =
   ReturnType<typeof sendMessageActionCreator> | ReturnType<typeof updateNewMessageBodyActionCreator>;
 export type StoreType = {
   _state: StateType
-  _callSubscriber: () => void
+  _callSubscriber: (state: StateType) => void
   subscribe: (observer: () => void) => void
   getState: () => StateType
   dispatch: (action: ActionsTypes) => void

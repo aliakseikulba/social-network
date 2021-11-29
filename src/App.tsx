@@ -8,13 +8,14 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import {ActionsTypes, StateType, StoreType} from './types/types';
+import {ActionsTypes, StateType} from './types/types';
+import { Store } from 'redux';
 
 
 type AppPropsType = {
   state: StateType
   dispatch: (action: ActionsTypes) => void
-  store: StoreType
+  store: Store
 }
 
 const App: React.FC<AppPropsType> = ({store, state, dispatch}) => {

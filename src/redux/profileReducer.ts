@@ -1,4 +1,3 @@
-
 import {ActionsTypes, ProfilePageType} from '../types/types';
 
 const ADD_POST = 'ADD_POST';
@@ -10,9 +9,9 @@ const initialState = {
     {id: 2, message: 'It\'s my first post', likesCount: 5},
   ],
   newPostText: ''
-}
+};
 
-const profileReducer = (state: ProfilePageType = initialState, action: ActionsTypes) => {
+const profileReducer = (state: ProfilePageType = initialState, action: ActionsTypes): ProfilePageType => {
 
   switch (action.type) {
     case ADD_POST:

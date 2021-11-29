@@ -22,9 +22,9 @@ const initialState = {
     {id: 7, message: 'typing...', status: 'sender'},
   ],
   newMessageBody: '',
-}
+};
 
-const dialogsReducer = (state: DialogsPageType = initialState, action: ActionsTypes) => {
+const dialogsReducer = (state: DialogsPageType = initialState, action: ActionsTypes): DialogsPageType => {
   switch (action.type) {
     case UPDATE_NEW_MESSAGE_BODY:
       state.newMessageBody = action.body;

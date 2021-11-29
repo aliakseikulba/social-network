@@ -57,7 +57,7 @@ export const store: StoreType = {
   getState() {
     return this._state;
   },
-  subscribe(observer: () => void) {
+  subscribe(observer) {
     this._callSubscriber = observer;
   },
 
@@ -67,6 +67,6 @@ export const store: StoreType = {
     this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
     this._state.sideBar = sideBarReducer(this._state.sideBar, action);
 
-    this._callSubscriber();
+    this._callSubscriber(this._state);
   }
 };

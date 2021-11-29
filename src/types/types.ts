@@ -1,4 +1,4 @@
-import {addPostActionCreator, UpdateNewPostTextActionCreator} from '../redux/profileReducer';
+import {addPostActionCreator, updateNewPostTextActionCreator} from '../redux/profileReducer';
 import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from '../redux/dialogsReducer';
 
 export type PostItemType = {
@@ -44,7 +44,7 @@ export type StateType = {
   sideBar: SidebarType
 }
 export type ActionsTypes =
-  ReturnType<typeof addPostActionCreator> | ReturnType<typeof UpdateNewPostTextActionCreator> |
+  ReturnType<typeof addPostActionCreator> | ReturnType<typeof updateNewPostTextActionCreator> |
   ReturnType<typeof sendMessageActionCreator> | ReturnType<typeof updateNewMessageBodyActionCreator>;
 export type StoreType = {
   _state: StateType

@@ -1,59 +1,7 @@
-import profileReducer, {addPostActionCreator, UpdateNewPostTextActionCreator} from './profileReducer';
-import dialogsReducer, {sendMessageActionCreator, updateNewMessageBodyActionCreator} from './dialogsReducer';
+import profileReducer from './profileReducer';
+import dialogsReducer from './dialogsReducer';
 import sideBarReducer from './sideBarReducer';
-
-export type PostItemType = {
-  id?: number
-  message: string
-  likesCount: number
-}
-export type PostsType = Array<PostItemType>
-export type DialogsDataItemType = {
-  id: number
-  name: string
-  userPhoto: string
-}
-export type DialogsDataType = Array<DialogsDataItemType>
-export type MessageDataItemType = {
-  id?: number
-  message: string
-  status: string
-}
-export type MessageDataType = Array<MessageDataItemType>
-export type ProfilePageType = {
-  posts: PostsType
-  newPostText: string
-}
-export type DialogsPageType = {
-  dialogsData: DialogsDataType
-  messageData: MessageDataType
-  newMessageBody: string
-}
-export type SidebarType = {
-  friendsData: FriendsDataType
-}
-export type FriendsDataType = FriendItemType[];
-export type FriendItemType = {
-  id: number
-  name: string
-  surname: string
-  friendPhoto: string
-}
-export type StateType = {
-  profilePage: ProfilePageType
-  dialogsPage: DialogsPageType
-  sideBar: SidebarType
-}
-export type ActionsTypes =
-  ReturnType<typeof addPostActionCreator> | ReturnType<typeof UpdateNewPostTextActionCreator> |
-  ReturnType<typeof sendMessageActionCreator> | ReturnType<typeof updateNewMessageBodyActionCreator>;
-export type StoreType = {
-  _state: StateType
-  _onChange: () => void
-  subscribe: (observer: () => void) => void
-  getState: () => StateType
-  dispatch: (action: ActionsTypes) => void
-}
+import {StoreType} from '../types/types';
 
 
 export const store: StoreType = {
@@ -102,7 +50,7 @@ export const store: StoreType = {
       ]
     }
   },
-  _onChange() {
+  _callSubscriber() {
     console.log('state changed');
   },
 
@@ -110,14 +58,15 @@ export const store: StoreType = {
     return this._state;
   },
   subscribe(observer: () => void) {
-    this._onChange = observer;
+    this._callSubscriber = observer;
   },
+
   dispatch(action) {
 
     this._state.profilePage = profileReducer(this._state.profilePage, action);
     this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
     this._state.sideBar = sideBarReducer(this._state.sideBar, action);
 
-    this._onChange();
+    this._callSubscriber();
   }
 };

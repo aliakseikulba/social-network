@@ -2,21 +2,23 @@ import React, {ChangeEvent} from 'react';
 import styles from './Dialogs.module.scss';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import {StoreType,} from '../../redux/state';
 import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from '../../redux/dialogsReducer';
+import {ActionsTypes, StoreType} from '../../types/types';
+import {AppStoreType} from '../../redux/redux-store';
+import {Dispatch, Store} from 'redux';
 
 
 type DialogsPropsType = {
-  store: StoreType
+  store: Store<AppStoreType, ActionsTypes>
 }
 
 const Dialogs: React.FC<DialogsPropsType> = ({store}) => {
-
+  debugger
   const state = store.getState().dialogsPage;
 
   const dialogsItem = state.dialogsData
-    .map(d => <DialogItem id={d.id} name={d.name} userPhoto={d.userPhoto}/>);
-  const messagesItem = state.messageData.map(m => <Message message={m.message} status={m.status}/>);
+    .map((d:any) => <DialogItem id={d.id} name={d.name} userPhoto={d.userPhoto}/>);
+  const messagesItem = state.messageData.map((m: any) => <Message message={m.message} status={m.status}/>);
   const newMessageBody = state.newMessageBody;
 
   const onSendMessageClick = () => {

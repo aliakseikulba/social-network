@@ -34,17 +34,24 @@ const initialState = {
   newMessageBody: '',
 };
 
-const dialogsReducer = (state:DialogsPageInitialStateType  = initialState, action: ActionsTypes)
-  :DialogsPageInitialStateType  => {
+const dialogsReducer = (state: DialogsPageInitialStateType = initialState, action: ActionsTypes)
+  : DialogsPageInitialStateType => {
   switch (action.type) {
-    case 'UPDATE-NEW-MESSAGE-BODY':
-      state.newMessageBody = action.body;
-      return state;
-    case 'SEND_MESSAGE':
-      let body = state.newMessageBody;
-      state.newMessageBody = '';
-      state.messageData.push({id: 8, message: body, status: 'sender'});
-      return state;
+
+    case 'UPDATE-NEW-MESSAGE-BODY': {
+      return {...state, newMessageBody: action.body};
+    }
+
+    case 'SEND_MESSAGE': {
+      return {
+        ...state, messageData: [
+          ...state.messageData,
+          {id: 8, message: state.newMessageBody, status: 'sender'}
+        ],
+        newMessageBody: ''
+      };
+    }
+
     default:
       return state;
   }

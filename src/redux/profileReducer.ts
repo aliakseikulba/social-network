@@ -35,9 +35,8 @@ const profileReducer = (state: ProfilePageInitialStateType = initialState, actio
       return {...state, newPostText: action.newText}
     }
 
-    default: {
+    default:
       return state;
-    }
   }
 };
 

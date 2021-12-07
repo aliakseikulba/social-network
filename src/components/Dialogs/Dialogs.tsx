@@ -9,8 +9,9 @@ const Dialogs: React.FC<DialogsPropsType> = ({dialogsPage, sendMessage, updateNe
   const state = dialogsPage;
 
   const dialogsItem = state.dialogsData
-    .map((d: any) => <DialogItem id={d.id} name={d.name} userPhoto={d.userPhoto}/>);
-  const messagesItem = state.messageData.map((m: any) => <Message message={m.message} status={m.status}/>);
+    .map((d: any) => <DialogItem key={d.id} id={d.id} name={d.name} userPhoto={d.userPhoto}/>);
+  const messagesItem = state.messageData
+    .map((m: any) => <Message key={m.id} message={m.message} status={m.status}/>);
   const newMessageBody = state.newMessageBody;
 
   const onSendMessageClick = () => {

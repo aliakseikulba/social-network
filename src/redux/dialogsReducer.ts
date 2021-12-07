@@ -44,7 +44,8 @@ const dialogsReducer = (state: DialogsPageInitialStateType = initialState, actio
 
     case 'SEND_MESSAGE': {
       return {
-        ...state, messageData: [
+        ...state,
+        messageData: [
           ...state.messageData,
           {id: 8, message: state.newMessageBody, status: 'sender'}
         ],

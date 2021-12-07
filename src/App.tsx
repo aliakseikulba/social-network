@@ -34,7 +34,7 @@ const App: React.FC = () => {
             <Route path="/settings">
               <Settings/>
             </Route>
-            <Route path="/user">
+            <Route path="/users">
               <UsersContainer/>
             </Route>
           </Switch>

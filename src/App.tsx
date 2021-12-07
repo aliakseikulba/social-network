@@ -10,12 +10,6 @@ import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
-// type AppPropsType = {
-//   state: AppStateType
-//   dispatch: Dispatch
-//   store: Store
-// }
-
 const App: React.FC = () => {
   return (
     <div className="layout">
@@ -38,6 +32,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/settings">
               <Settings/>
+            </Route>
+            <Route path="/user">
+              <div>Users</div>
             </Route>
           </Switch>
         </div>

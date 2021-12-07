@@ -25,15 +25,15 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
   return {
     follow: (userID: string) => {
-      dispatch(followAC(userID))
+      dispatch(followAC(userID));
     },
     unfollow: (userID: string) => {
-      dispatch(unfollowAC(userID))
+      dispatch(unfollowAC(userID));
     },
     setUsers: (users: Array<UserItemType>) => {
-      setUsersAC(users);
+      dispatch(setUsersAC(users));
     }
-  }
+  };
 };
 
 

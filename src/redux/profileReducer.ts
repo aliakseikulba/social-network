@@ -20,20 +20,24 @@ const profileReducer = (state: ProfilePageInitialStateType = initialState, actio
   ProfilePageInitialStateType => {
 
   switch (action.type) {
-    case 'ADD_POST':
+
+    case 'ADD_POST': {
       const newPost = {
         id: 5,
         message: state.newPostText,
         likesCount: 0
       };
-      state.posts.push(newPost);
-      state.newPostText = '';
+
+      return {...state, posts: [...state.posts, newPost], newPostText: ''};
+    }
+
+    case 'UPDATE-NEW-POST-TEXT': {
+      return {...state, newPostText: action.newText}
+    }
+
+    default: {
       return state;
-    case 'UPDATE-NEW-POST-TEXT':
-      state.newPostText = action.newText;
-      return state;
-    default:
-      return state;
+    }
   }
 };
 

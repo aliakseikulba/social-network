@@ -6,6 +6,7 @@ import sideBarReducer from './sideBarReducer';
 export type ActionsTypes =
   ReturnType<typeof addPostActionCreator> | ReturnType<typeof updateNewPostTextActionCreator> |
   ReturnType<typeof sendMessageActionCreator> | ReturnType<typeof updateNewMessageBodyActionCreator>;
+
 export type AppStateType = ReturnType<typeof rootReducer>;
 
 export const rootReducer = combineReducers({

@@ -1,3 +1,4 @@
+import {ActionsTypes} from './reduxStore';
 
 type UsersItemType = {
   id: string
@@ -18,11 +19,15 @@ users: [
 ] as Array<UsersItemType>
 };
 
-const usersReducer = (state: any = initialState, action: any) => {
+const usersReducer = (state: UsersInitialStateType = initialState, action: ActionsTypes):UsersInitialStateType => {
 
   switch (action.type) {
 
-    case 'a' : {
+    case 'FOLLOW' : {
+      return {...state}
+    }
+
+    case 'UNFOLLOW': {
       return {...state}
     }
 
@@ -30,5 +35,18 @@ const usersReducer = (state: any = initialState, action: any) => {
       return state;
   }
 };
+
+
+export const followAC = () => {
+  return {
+    type: 'FOLLOW'
+  } as const
+}
+
+export const unfollowAC = () => {
+  return {
+    type: 'UNFOLLOW'
+  } as const
+}
 
 export {usersReducer};

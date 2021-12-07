@@ -27,7 +27,6 @@ const profileReducer = (state: ProfilePageInitialStateType = initialState, actio
         message: state.newPostText,
         likesCount: 0
       };
-
       return {...state, posts: [...state.posts, newPost], newPostText: ''};
     }
 

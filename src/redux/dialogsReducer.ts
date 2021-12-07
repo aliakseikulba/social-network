@@ -1,7 +1,17 @@
-import {ActionsTypes, DialogsPageType} from '../types/types';
+import {ActionsTypes} from './reduxStore';
 
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
-const SEND_MESSAGE = 'SEND_MESSAGE';
+
+export type DialogsDataItemType = {
+  id: number
+  name: string
+  userPhoto: string
+}
+export type MessageDataItemType = {
+  id?: number
+  message: string
+  status: string
+}
+export type DialogsPageInitialStateType = typeof initialState;
 
 const initialState = {
   dialogsData: [
@@ -11,7 +21,7 @@ const initialState = {
     {id: 4, name: 'User Four', userPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'},
     {id: 5, name: 'User Five', userPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'},
     {id: 6, name: 'User Six', userPhoto: 'https://freesvg.org/img/abstract-user-flat-1.png'}
-  ],
+  ] as Array<DialogsDataItemType>,
   messageData: [
     {id: 1, message: 'I\'m calling today about a bill that I never received.', status: 'sender'},
     {id: 2, message: 'Can you tell me which credit card it was for?', status: 'recipient'},
@@ -20,16 +30,17 @@ const initialState = {
     {id: 5, message: 'I haven\'t got it in the mail yet.', status: 'sender'},
     {id: 6, message: 'The computer is showing that all bills have been mailed.', status: 'recipient'},
     {id: 7, message: 'typing...', status: 'sender'},
-  ],
+  ] as Array<MessageDataItemType>,
   newMessageBody: '',
 };
 
-const dialogsReducer = (state: DialogsPageType = initialState, action: ActionsTypes): DialogsPageType => {
+const dialogsReducer = (state:DialogsPageInitialStateType  = initialState, action: ActionsTypes)
+  :DialogsPageInitialStateType  => {
   switch (action.type) {
-    case UPDATE_NEW_MESSAGE_BODY:
+    case 'UPDATE-NEW-MESSAGE-BODY':
       state.newMessageBody = action.body;
       return state;
-    case SEND_MESSAGE:
+    case 'SEND_MESSAGE':
       let body = state.newMessageBody;
       state.newMessageBody = '';
       state.messageData.push({id: 8, message: body, status: 'sender'});
@@ -39,8 +50,8 @@ const dialogsReducer = (state: DialogsPageType = initialState, action: ActionsTy
   }
 };
 
-export const sendMessageActionCreator = () => ({type: SEND_MESSAGE} as const);
+export const sendMessageActionCreator = () => ({type: 'SEND_MESSAGE'} as const);
 export const updateNewMessageBodyActionCreator = (text: string) =>
-  ({type: UPDATE_NEW_MESSAGE_BODY, body: text} as const);
+  ({type: 'UPDATE-NEW-MESSAGE-BODY', body: text} as const);
 
 export default dialogsReducer;

@@ -1,14 +1,9 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import styles from './Navbar.module.scss';
-import Friends from '../Friends/Friends';
-import {SidebarType} from '../../types/types';
 
-type NavbarPropsType = {
-  // state: SidebarType
-}
 
-const Navbar: React.FC<NavbarPropsType> = () => {
+const Navbar: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
@@ -29,7 +24,6 @@ const Navbar: React.FC<NavbarPropsType> = () => {
           <NavLink to="/settings" activeClassName={styles.activeLink}>Settings</NavLink>
         </div>
       </nav>
-      {/*<Friends state={state}/>*/}
     </div>
   );
 };

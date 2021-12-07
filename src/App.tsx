@@ -10,13 +10,13 @@ import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
-type AppPropsType = {
-  // state: AppStateType
-  // dispatch: Dispatch
-  // store: Store
-}
+// type AppPropsType = {
+//   state: AppStateType
+//   dispatch: Dispatch
+//   store: Store
+// }
 
-const App: React.FC<AppPropsType> = () => {
+const App: React.FC = () => {
   return (
     <div className="layout">
       <div className="app-wrapper">

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Post.module.scss'
-import {PostItemType} from '../../../../types/types';
+import {PostItemType} from '../../../../redux/profileReducer';
 
 
 const Post: React.FC<PostItemType> = ({message, likesCount}) => {

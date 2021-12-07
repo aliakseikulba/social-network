@@ -1,14 +1,8 @@
 import React from 'react';
 import styles from './MyPosts.module.scss';
 import Post from './Post/Post';
-import {PostsType} from '../../../types/types';
+import {MyPostsPropsType} from './MyPostsContainer';
 
-type MyPostsPropsType = {
-  updateNewPostText: (text: string) => void
-  addPost: () => void
-  posts: PostsType
-  newPostText: string
-}
 
 const MyPosts: React.FC<MyPostsPropsType> = (props) => {
 

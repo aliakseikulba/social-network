@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../Dialogs.module.scss';
-import {MessageDataItemType} from '../../../types/types';
+import {MessageDataItemType} from '../../../redux/dialogsReducer';
 
 const Message: React.FC<MessageDataItemType> = ({message, status}) => {
 

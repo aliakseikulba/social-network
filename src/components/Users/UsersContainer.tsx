@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Users = () => {
+const UsersContainer = () => {
   return (
     <div>
-
+      USERS
     </div>
   );
 };
 
-export {Users};
+export {UsersContainer};

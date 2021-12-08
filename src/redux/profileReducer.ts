@@ -1,12 +1,11 @@
-import {ActionsTypes} from './reduxStore';
-
-
 export type PostItemType = {
   id?: number
   message: string
   likesCount: number
 }
-export type ProfilePageInitialStateType = typeof initialState;
+export type ProfilePageStateType = typeof initialState;
+type ActionsType = ReturnType<typeof addPostActionCreator>
+  | ReturnType<typeof updateNewPostTextActionCreator>;
 
 const initialState = {
   posts: [
@@ -16,8 +15,8 @@ const initialState = {
   newPostText: ''
 };
 
-const profileReducer = (state: ProfilePageInitialStateType = initialState, action: ActionsTypes):
-  ProfilePageInitialStateType => {
+const profileReducer = (state: ProfilePageStateType = initialState, action: ActionsType):
+  ProfilePageStateType => {
 
   switch (action.type) {
 
@@ -31,7 +30,7 @@ const profileReducer = (state: ProfilePageInitialStateType = initialState, actio
     }
 
     case 'UPDATE-NEW-POST-TEXT': {
-      return {...state, newPostText: action.newText}
+      return {...state, newPostText: action.newText};
     }
 
     default:
@@ -43,4 +42,4 @@ export const addPostActionCreator = () => ({type: 'ADD_POST'} as const);
 export const updateNewPostTextActionCreator = (text: string) =>
   ({type: 'UPDATE-NEW-POST-TEXT', newText: text} as const);
 
-export default profileReducer;
+export {profileReducer};

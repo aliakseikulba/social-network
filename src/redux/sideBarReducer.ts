@@ -1,16 +1,10 @@
-import {ActionsTypes} from './reduxStore';
-
-
 type FriendItemType = {
   id: number
   name: string
   surname: string
   friendPhoto: string
 }
-
-export type SidebarInitialStateType = {
-  friendsData: Array<FriendItemType>
-}
+export type SidebarStateType = typeof initialState;
 
 const initialState = {
   friendsData: [
@@ -29,9 +23,8 @@ const initialState = {
   ] as Array<FriendItemType>
 };
 
-const sideBarReducer = (state: SidebarInitialStateType = initialState, action: ActionsTypes):
-  SidebarInitialStateType => {
-  return state;
+const sideBarReducer = (state: SidebarStateType = initialState, action: any): SidebarStateType => {
+  return {...state};
 };
 
-export default sideBarReducer;
+export {sideBarReducer};

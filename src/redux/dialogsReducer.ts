@@ -1,6 +1,3 @@
-import {ActionsTypes} from './reduxStore';
-
-
 export type DialogsDataItemType = {
   id: number
   name: string
@@ -11,7 +8,10 @@ export type MessageDataItemType = {
   message: string
   status: string
 }
-export type DialogsPageInitialStateType = typeof initialState;
+export type DialogsPageStateType = typeof initialState;
+type ActionsType = ReturnType<typeof sendMessageActionCreator>
+  | ReturnType<typeof updateNewMessageBodyActionCreator>
+
 
 const initialState = {
   dialogsData: [
@@ -34,8 +34,8 @@ const initialState = {
   newMessageBody: '',
 };
 
-const dialogsReducer = (state: DialogsPageInitialStateType = initialState, action: ActionsTypes)
-  : DialogsPageInitialStateType => {
+const dialogsReducer = (state: DialogsPageStateType = initialState, action: ActionsType)
+  : DialogsPageStateType => {
   switch (action.type) {
 
     case 'UPDATE-NEW-MESSAGE-BODY': {
@@ -62,4 +62,4 @@ export const sendMessageActionCreator = () => ({type: 'SEND_MESSAGE'} as const);
 export const updateNewMessageBodyActionCreator = (text: string) =>
   ({type: 'UPDATE-NEW-MESSAGE-BODY', body: text} as const);
 
-export default dialogsReducer;
+export {dialogsReducer};

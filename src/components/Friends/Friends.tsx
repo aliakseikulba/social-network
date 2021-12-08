@@ -1,14 +1,12 @@
 import React from 'react';
 import styles from './Friends.module.scss';
-import {SidebarInitialStateType} from '../../redux/sideBarReducer';
+import {SidebarStateType} from '../../redux/sideBarReducer';
 
-type FriendsPropsType = {
-  state: SidebarInitialStateType
-}
+type FriendsPropsType = SidebarStateType
 
-const Friends: React.FC<FriendsPropsType> = ({state}) => {
+const Friends: React.FC<FriendsPropsType> = (props) => {
 
-  const friendItemRender = state.friendsData.map(f => {
+  const friendItemRender = props.friendsData.map(f => {
     return <div className={styles.friendItem}>
       <div className={styles.friendPhoto}>
         <img src={f.friendPhoto}/>
@@ -18,12 +16,12 @@ const Friends: React.FC<FriendsPropsType> = ({state}) => {
   });
 
   return (
-      <div className={styles.friendsBlock}>
-        <div className={styles.friendsBlockTitle}>Friends</div>
-        <div className={styles.friendsData}>
-          {friendItemRender}
-        </div>
+    <div className={styles.friendsBlock}>
+      <div className={styles.friendsBlockTitle}>Friends</div>
+      <div className={styles.friendsData}>
+        {friendItemRender}
       </div>
+    </div>
   );
 };
 

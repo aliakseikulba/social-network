@@ -1,5 +1,3 @@
-import {ActionsTypes} from './reduxStore';
-
 export type UserItemType = {
   id: string
   photoURL: string
@@ -8,14 +6,17 @@ export type UserItemType = {
   name: string
   location: { city: string, country: string }
 }
+export type UsersStateType = typeof initialState;
 
-export type UsersInitialStateType = typeof initialState;
+type ActionsType = ReturnType<typeof followAC>
+  | ReturnType<typeof unfollowAC>
+  | ReturnType<typeof setUsersAC>
 
 const initialState = {
   users: [] as Array<UserItemType>
 };
 
-const usersReducer = (state: UsersInitialStateType = initialState, action: ActionsTypes): UsersInitialStateType => {
+const usersReducer = (state: UsersStateType = initialState, action: ActionsType): UsersStateType => {
 
   switch (action.type) {
 

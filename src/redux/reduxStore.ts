@@ -1,16 +1,8 @@
 import {createStore, combineReducers} from 'redux';
-import profileReducer, {addPostActionCreator, updateNewPostTextActionCreator} from './profileReducer';
-import dialogsReducer, {sendMessageActionCreator, updateNewMessageBodyActionCreator} from './dialogsReducer';
-import sideBarReducer from './sideBarReducer';
-import {followAC, setUsersAC, unfollowAC, usersReducer} from './usersReducer';
-
-export type ActionsTypes = ReturnType<typeof addPostActionCreator>
-  | ReturnType<typeof updateNewPostTextActionCreator>
-  | ReturnType<typeof sendMessageActionCreator>
-  | ReturnType<typeof updateNewMessageBodyActionCreator>
-  | ReturnType<typeof followAC>
-  | ReturnType<typeof unfollowAC>
-  | ReturnType<typeof setUsersAC>;
+import {profileReducer} from './profileReducer';
+import {dialogsReducer} from './dialogsReducer';
+import {sideBarReducer} from './sideBarReducer';
+import {usersReducer} from './usersReducer';
 
 
 export type AppStateType = ReturnType<typeof rootReducer>;

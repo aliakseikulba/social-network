@@ -13,7 +13,7 @@ type ResponseType = {
 
 const Users: React.FC<UsersPropsType> = (props) => {
 
-  const getUsers = ():void => {
+  const getUsers = (): void => {
     if (props.users.length === 0) {
       const axios = require('axios');
       axios.get('https://social-network.samuraijs.com/api/1.0/users')
@@ -21,7 +21,7 @@ const Users: React.FC<UsersPropsType> = (props) => {
           props.setUsers(response.data.items);
         });
     }
-  }
+  };
 
 
   return (

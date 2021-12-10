@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import s from './Users.module.scss';
 import userPhoto from '../../assets/images/user.png';
-import {UserItemType, UsersStateType} from '../../redux/usersReducer';
+import {UserItemType} from '../../redux/usersReducer';
 import {UsersPropsType} from './UsersContainer';
+
 
 type ResponseType = {
   data: {
@@ -10,9 +11,11 @@ type ResponseType = {
   }
 }
 
-export class Users extends React.Component<UsersPropsType, UsersStateType>{
+export class Users extends Component<UsersPropsType>{
 
-  getUsers = () => {
+  constructor(props: UsersPropsType) {
+    super(props);
+
     if (this.props.users.length === 0) {
       const axios = require('axios');
       axios.get('https://social-network.samuraijs.com/api/1.0/users')
@@ -20,12 +23,12 @@ export class Users extends React.Component<UsersPropsType, UsersStateType>{
           this.props.setUsers(response.data.items);
         });
     }
-  };
+  }
+
 
   render() {
     return (
       <div>
-        <button onClick={this.getUsers}>get users</button>
         {
           this.props.users.map((u: UserItemType) =>
             <div key={u.id} className={s.userWrapper}>

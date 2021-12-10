@@ -3,6 +3,7 @@ import {UsersPropsType} from './UsersContainer';
 import s from './Users.module.scss';
 import axios from 'axios';
 import {UserItemType} from '../../redux/usersReducer';
+import userPhoto from '../../assets/images/user.png';
 
 type DataType = {
   items: Array<UserItemType>
@@ -24,7 +25,10 @@ const Users: React.FC<UsersPropsType> = (props) => {
         props.users.map(u =>
           <div key={u.id} className={s.userWrapper}>
             <div className={s.userView}>
-              <div><img src={u.photoURL} alt="userPhoto" className={s.userPhoto}/></div>
+              <div><img
+                src={u.photos.small !== null ? u.photos.small : userPhoto}
+                alt="userPhoto"
+                className={s.userPhoto}/></div>
               <div>
                 {u.followed
                   ? <button onClick={() => {
@@ -51,4 +55,4 @@ const Users: React.FC<UsersPropsType> = (props) => {
   );
 };
 
-export {Users}; 
+export {Users};

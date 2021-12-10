@@ -1,6 +1,6 @@
 export type UserItemType = {
-  id: string
-  photoURL: string
+  id: number
+  photos: { small: string, large: string}
   followed: boolean
   status: string
   name: string
@@ -38,14 +38,14 @@ const usersReducer = (state: UsersStateType = initialState, action: ActionsType)
 };
 
 
-export const followAC = (userID: string) => {
+export const followAC = (userID: number) => {
   return {
     type: 'FOLLOW',
     userID
   } as const;
 };
 
-export const unfollowAC = (userID: string) => {
+export const unfollowAC = (userID: number) => {
   return {
     type: 'UNFOLLOW',
     userID

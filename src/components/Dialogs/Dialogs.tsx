@@ -3,15 +3,16 @@ import styles from './Dialogs.module.scss';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import {DialogsPropsType} from './DialogsContainer';
+import {DialogsDataItemType, MessageDataItemType} from '../../redux/dialogsReducer';
 
 
 const Dialogs: React.FC<DialogsPropsType> = ({dialogsPage, sendMessage, updateNewMessageBody}) => {
   const state = dialogsPage;
 
   const dialogsItem = state.dialogsData
-    .map((d: any) => <DialogItem key={d.id} id={d.id} name={d.name} userPhoto={d.userPhoto}/>);
+    .map((d: DialogsDataItemType) => <DialogItem key={d.id} id={d.id} name={d.name} userPhoto={d.userPhoto}/>);
   const messagesItem = state.messageData
-    .map((m: any) => <Message key={m.id} message={m.message} status={m.status}/>);
+    .map((m: MessageDataItemType) => <Message key={m.id} message={m.message} status={m.status}/>);
   const newMessageBody = state.newMessageBody;
 
   const onSendMessageClick = () => {

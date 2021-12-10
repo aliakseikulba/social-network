@@ -1,36 +1,21 @@
 import React from 'react';
 import {UsersPropsType} from './UsersContainer';
 import s from './Users.module.scss';
+import axios from 'axios';
+import {UserItemType} from '../../redux/usersReducer';
+
+type DataType = {
+  items: Array<UserItemType>
+}
 
 const Users: React.FC<UsersPropsType> = (props) => {
 
   if (props.users.length === 0) {
-    props.setUsers([
-      {
-        id: '1',
-        photoURL: 'https://freesvg.org/img/abstract-user-flat-1.png',
-        followed: false,
-        name: 'Nik',
-        status: 'German Spy',
-        location: {city: 'Berlin', country: 'Germany'}
-      },
-      {
-        id: '2',
-        photoURL: 'https://freesvg.org/img/abstract-user-flat-1.png',
-        followed: false,
-        name: 'Mike',
-        status: 'Polish Spy',
-        location: {city: 'Warsaw', country: 'Poland'}
-      },
-      {
-        id: '3',
-        photoURL: 'https://freesvg.org/img/abstract-user-flat-1.png',
-        followed: true,
-        name: 'Steeve',
-        status: 'English Spy',
-        location: {city: 'London', country: 'United Kingdom'}
-      },
-    ]);
+    axios.get<DataType>('https://social-network.samuraijs.com/api/1.0/users')
+      .then(response => {
+        console.log('response', response);
+        props.setUsers(response.data.items);
+      });
   }
 
   return (
@@ -56,8 +41,8 @@ const Users: React.FC<UsersPropsType> = (props) => {
                 <div>{u.status}</div>
               </div>
               <div className={s.userAddress}>
-                <div>{u.location.city},</div>
-                <div>{u.location.country}</div>
+                <div>City,</div>
+                <div>Country</div>
               </div>
             </div>
           </div>)
@@ -66,4 +51,4 @@ const Users: React.FC<UsersPropsType> = (props) => {
   );
 };
 
-export {Users};
+export {Users}; 

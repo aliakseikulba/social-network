@@ -1,26 +1,32 @@
 import React from 'react';
 import {UsersPropsType} from './UsersContainer';
 import s from './Users.module.scss';
-import axios from 'axios';
 import {UserItemType} from '../../redux/usersReducer';
 import userPhoto from '../../assets/images/user.png';
 
-type DataType = {
-  items: Array<UserItemType>
+
+type ResponseType = {
+  data: {
+    items: Array<UserItemType>
+  }
 }
 
 const Users: React.FC<UsersPropsType> = (props) => {
 
-  if (props.users.length === 0) {
-    axios.get<DataType>('https://social-network.samuraijs.com/api/1.0/users')
-      .then(response => {
-        console.log('response', response);
-        props.setUsers(response.data.items);
-      });
+  const getUsers = ():void => {
+    if (props.users.length === 0) {
+      const axios = require('axios');
+      axios.get('https://social-network.samuraijs.com/api/1.0/users')
+        .then((response: ResponseType) => {
+          props.setUsers(response.data.items);
+        });
+    }
   }
+
 
   return (
     <div>
+      <button onClick={getUsers}>get users</button>
       {
         props.users.map(u =>
           <div key={u.id} className={s.userWrapper}>

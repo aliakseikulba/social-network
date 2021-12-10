@@ -1,6 +1,6 @@
 export type UserItemType = {
   id: number
-  photos: { small: string, large: string}
+  photos: { small: string, large: string }
   followed: boolean
   status: string
   name: string

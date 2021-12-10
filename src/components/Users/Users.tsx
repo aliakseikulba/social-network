@@ -11,7 +11,7 @@ type ResponseType = {
   }
 }
 
-export class Users extends Component<UsersPropsType>{
+export class Users extends Component<UsersPropsType> {
 
   constructor(props: UsersPropsType) {
     super(props);

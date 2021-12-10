@@ -3,6 +3,7 @@ import s from './Users.module.scss';
 import userPhoto from '../../assets/images/user.png';
 import {UserItemType} from '../../redux/usersReducer';
 import {UsersPropsType} from './UsersContainer';
+import axios from 'axios';
 
 
 type ResponseType = {
@@ -13,9 +14,7 @@ type ResponseType = {
 
 export class Users extends Component<UsersPropsType> {
 
-  constructor(props: UsersPropsType) {
-    super(props);
-
+  componentDidMount(): void {
     if (this.props.users.length === 0) {
       const axios = require('axios');
       axios.get('https://social-network.samuraijs.com/api/1.0/users')

@@ -3,7 +3,6 @@ import s from './Users.module.scss';
 import userPhoto from '../../assets/images/user.png';
 import {UserItemType} from '../../redux/usersReducer';
 import {UsersPropsType} from './UsersContainer';
-import axios from 'axios';
 
 
 type ResponseType = {

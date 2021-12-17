@@ -5,6 +5,16 @@
   height: 100px;
   align-items: center;
 }
+
+.pageNum {
+  color: white;
+}
+
+.selectedPage {
+  border-bottom: 1px solid white;
+  font-weight: bold;
+}
+
 .userView {
   display: flex;
   flex-direction: column;

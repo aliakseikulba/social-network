@@ -17,7 +17,7 @@ type ActionsType = ReturnType<typeof followAC>
 const initialState = {
   users: [] as Array<UserItemType>,
   pageSize: 5,
-  totalUsersCount: 0,
+  totalUsersCount: 1000,
   currentPage: 1
 };
 

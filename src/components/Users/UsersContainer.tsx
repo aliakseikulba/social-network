@@ -1,6 +1,4 @@
 import {connect} from 'react-redux';
-import preloader from '../../assets/images/oval.svg';
-
 import {
   followAC,
   setCurrentPageAC, setToggleIsFetchingAC, setTotalUsersCountAC,
@@ -70,7 +68,7 @@ class UsersApi extends Component<UsersApiPropsType> {
 
     return (
       <>
-        {this.props.isFetching ? <Preloader/> : null}
+        {this.props.isFetching && <Preloader/>}
         <Users users={this.props.users}
                totalUsersCount={this.props.totalUsersCount}
                pageSize={this.props.pageSize}

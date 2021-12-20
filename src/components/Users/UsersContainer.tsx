@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 import {
-  followAC,
-  setCurrentPageAC, setToggleIsFetchingAC, setTotalUsersCountAC,
-  setUsersAC,
-  unfollowAC,
+  follow,
+  setCurrentPage, setToggleIsFetching, setTotalUsersCount,
+  setUsers,
+  unfollow,
   UserItemType
 } from '../../redux/usersReducer';
 import {AppStateType} from '../../redux/reduxStore';
@@ -92,35 +92,29 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
   };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
-  return {
-    follow: (userID: number) => {
-      dispatch(followAC(userID));
-    },
-    unfollow: (userID: number) => {
-      dispatch(unfollowAC(userID));
-    },
-    setUsers: (users: Array<UserItemType>) => {
-      dispatch(setUsersAC(users));
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageAC(pageNumber));
-    },
-    setTotalUsersCount: (totalCount) => {
-      dispatch(setTotalUsersCountAC(totalCount));
-    },
-    setToggleIsFetching: (isFetching) => {
-      dispatch(setToggleIsFetchingAC(isFetching));
-    },
-  };
-};
+// const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
+//   return {
+//     follow: (userID: number) => {
+//       dispatch(followAC(userID));
+//     },
+//     unfollow: (userID: number) => {
+//       dispatch(unfollowAC(userID));
+//     },
+//     setUsers: (users: Array<UserItemType>) => {
+//       dispatch(setUsersAC(users));
+//     },
+//     setCurrentPage: (pageNumber) => {
+//       dispatch(setCurrentPageAC(pageNumber));
+//     },
+//     setTotalUsersCount: (totalCount) => {
+//       dispatch(setTotalUsersCountAC(totalCount));
+//     },
+//     setToggleIsFetching: (isFetching) => {
+//       dispatch(setToggleIsFetchingAC(isFetching));
+//     },
+//   };
+// };
 
 //контейнер, в котором лежит bll
-export const UsersContainer = connect(mapStateToProps, {
-  follow: followAC,
-  unfollow: unfollowAC,
-  setUsers: setUsersAC,
-  setCurrentPage: setCurrentPageAC,
-  setTotalUsersCount: setTotalUsersCountAC,
-  setToggleIsFetching: setToggleIsFetchingAC,
-})(UsersApi);
+export const UsersContainer = connect(mapStateToProps,
+  {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setToggleIsFetching})(UsersApi)

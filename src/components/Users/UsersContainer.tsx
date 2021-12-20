@@ -7,7 +7,6 @@ import {
   UserItemType
 } from '../../redux/usersReducer';
 import {AppStateType} from '../../redux/reduxStore';
-import {Dispatch} from 'redux';
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Users} from './Users';

@@ -116,4 +116,11 @@ const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
 };
 
 //контейнер, в котором лежит bll
-export const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersApi);
+export const UsersContainer = connect(mapStateToProps, {
+  follow: followAC,
+  unfollow: unfollowAC,
+  setUsers: setUsersAC,
+  setCurrentPage: setCurrentPageAC,
+  setTotalUsersCount: setTotalUsersCountAC,
+  setToggleIsFetching: setToggleIsFetchingAC,
+})(UsersApi);

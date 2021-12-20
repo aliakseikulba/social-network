@@ -19,7 +19,7 @@ const App: React.FC = () => {
         <Navbar/>
         <div className="app-wrapper-content">
           <Switch>
-            <Route path="/profile">
+            <Route path="/profile/:userId?">
               <ProfileMainContainer/>
             </Route>
             <Route path="/dialogs">

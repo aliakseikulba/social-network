@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {
   follow,
   setCurrentPage, setToggleIsFetching, setTotalUsersCount,
-  setUsers,
+  setUsers, toggleFollowingInProgress,
   unfollow,
   UserItemType
 } from '../../redux/usersReducer';
@@ -19,6 +19,7 @@ type MapStateToPropsType = {
   totalUsersCount: number
   currentPage: number
   isFetching: boolean
+  followingInProgress: Array<number>
 }
 type MapDispatchToPropsType = {
   follow: (userID: number) => void
@@ -27,6 +28,7 @@ type MapDispatchToPropsType = {
   setCurrentPage: (pageNumber: number) => void
   setTotalUsersCount: (totalCount: number) => void
   setToggleIsFetching: (isFetching: boolean) => void
+  toggleFollowingInProgress: (isFetching: boolean, userID: number) => void
 }
 export type UsersApiPropsType = MapStateToPropsType & MapDispatchToPropsType;
 
@@ -68,6 +70,8 @@ class UsersApi extends Component<UsersApiPropsType> {
                onPageChanged={this.onPageChanged}
                unfollow={this.props.unfollow}
                follow={this.props.follow}
+               toggleFollowing={this.props.toggleFollowingInProgress}
+               followingInProgress={this.props.followingInProgress}
         />
       </>
     );
@@ -81,9 +85,11 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
+    followingInProgress: state.usersPage.followingInProgress,
+
   };
 };
 
 //контейнер, в котором лежит bll
 export const UsersContainer = connect(mapStateToProps,
-  {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setToggleIsFetching})(UsersApi)
+  {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setToggleIsFetching, toggleFollowingInProgress})(UsersApi)

@@ -14,6 +14,7 @@ type ActionsType = ReturnType<typeof follow>
   | ReturnType<typeof setCurrentPage>
   | ReturnType<typeof setTotalUsersCount>
   | ReturnType<typeof setToggleIsFetching>
+  | ReturnType<typeof toggleFollowingInProgress>
 
 const initialState = {
   users: [] as Array<UserItemType>,
@@ -21,6 +22,7 @@ const initialState = {
   totalUsersCount: 1,
   currentPage: 1,
   isFetching: true,
+  followingInProgress: [] as Array<number>,
 };
 
 const usersReducer = (state: UsersStateType = initialState, action: ActionsType): UsersStateType => {
@@ -49,6 +51,15 @@ const usersReducer = (state: UsersStateType = initialState, action: ActionsType)
 
     case 'SET-IS-FETCHING': {
       return {...state, isFetching: action.isFetching};
+    }
+
+    case 'SET-FOLLOWING-PROGRESS': {
+      return <UsersStateType>{
+        ...state,
+        followingInProgress: action.isFetching
+          ? [...state.followingInProgress, action.userID]
+          : [state.followingInProgress.filter(id => id !== action.userID)]
+      };
     }
 
     default:
@@ -96,6 +107,14 @@ export const setToggleIsFetching = (isFetching: boolean) => {
   return {
     type: 'SET-IS-FETCHING',
     isFetching
+  } as const;
+};
+
+export const toggleFollowingInProgress = (isFetching: boolean, userID: number) => {
+  return {
+    type: 'SET-FOLLOWING-PROGRESS',
+    isFetching,
+    userID,
   } as const;
 };
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import {Route, Switch} from 'react-router-dom';
 import News from './components/News/News';
@@ -9,7 +8,7 @@ import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import {UsersContainer} from './components/Users/UsersContainer';
 import {ProfileMainContainer} from './components/Profile/ProfileContainer';
-import {HeaderConnect, HeaderContainer} from './components/Header/HeaderContainer';
+import {HeaderConnect} from './components/Header/HeaderContainer';
 
 
 const App: React.FC = () => {

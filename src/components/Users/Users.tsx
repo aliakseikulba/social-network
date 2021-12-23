@@ -3,6 +3,7 @@ import s from './Users.module.scss';
 import userPhoto from '../../assets/images/user.png';
 import {UserItemType} from '../../redux/usersReducer';
 import {NavLink} from 'react-router-dom';
+import axios from 'axios';
 
 
 type UsersPropsType = {
@@ -23,7 +24,6 @@ export const Users: React.FC<UsersPropsType> = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
-  // const pagesForRender = pages.slice(this.props.currentPage-1, this.props.currentPage + 10 )
 
   return (
     <div>
@@ -52,10 +52,34 @@ export const Users: React.FC<UsersPropsType> = (props) => {
               <div>
                 {u.followed
                   ? <button onClick={() => {
-                    props.unfollow(u.id);
+
+                    const axios = require('axios');
+                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                      withCredentials: true,
+                      headers: {
+                        'API-KEY': 'c0d492aa-215c-461c-a09c-fc3a5c38f627'
+                      }
+                    }).then((response: { data: { resultCode: number; }; }) => {
+                      if (response.data.resultCode === 0) {
+                        props.unfollow(u.id);
+                      }
+                    })
+
                   }}>Unfollow</button>
                   : <button onClick={() => {
-                    props.follow(u.id);
+
+                    const axios = require('axios');
+                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                      withCredentials: true,
+                      headers: {
+                        'API-KEY': 'c0d492aa-215c-461c-a09c-fc3a5c38f627'
+                      }
+                    }).then((response: { data: { resultCode: number; }; }) => {
+                      if (response.data.resultCode === 0) {
+                        props.follow(u.id);
+                      }
+                    })
+
                   }}>Follow</button>}
               </div>
             </div>

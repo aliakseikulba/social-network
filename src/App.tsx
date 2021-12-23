@@ -9,13 +9,14 @@ import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import {UsersContainer} from './components/Users/UsersContainer';
 import {ProfileMainContainer} from './components/Profile/ProfileContainer';
+import {HeaderConnect, HeaderContainer} from './components/Header/HeaderContainer';
 
 
 const App: React.FC = () => {
   return (
     <div className="layout">
       <div className="app-wrapper">
-        <Header/>
+        <HeaderConnect/>
         <Navbar/>
         <div className="app-wrapper-content">
           <Switch>

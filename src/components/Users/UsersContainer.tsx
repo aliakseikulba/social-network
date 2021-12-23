@@ -10,6 +10,7 @@ import {AppStateType} from '../../redux/reduxStore';
 import React, {Component} from 'react';
 import {Users} from './Users';
 import {Preloader} from '../common/Preloader/Preloader';
+import {usersApi, GetUsersDataType} from '../../api/api';
 
 
 type MapStateToPropsType = {
@@ -28,12 +29,6 @@ type MapDispatchToPropsType = {
   setToggleIsFetching: (isFetching: boolean) => void
 }
 export type UsersApiPropsType = MapStateToPropsType & MapDispatchToPropsType;
-type ResponseType = {
-  data: {
-    items: Array<UserItemType>,
-    totalCount: number
-  }
-}
 
 //второй контейнер для отправки запросов
 class UsersApi extends Component<UsersApiPropsType> {
@@ -41,12 +36,11 @@ class UsersApi extends Component<UsersApiPropsType> {
   componentDidMount(): void {
     this.props.setToggleIsFetching(true);
     if (this.props.users.length === 0) {
-      const axios = require('axios');
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {withCredentials: true})
-        .then((response: ResponseType) => {
+      usersApi.getUsers(this.props.currentPage, this.props.pageSize)
+        .then((data: GetUsersDataType) => {
           this.props.setToggleIsFetching(false);
-          this.props.setUsers(response.data.items);
-          this.props.setTotalUsersCount(response.data.totalCount);
+          this.props.setUsers(data.items);
+          this.props.setTotalUsersCount(data.totalCount);
         });
     }
   }
@@ -54,12 +48,10 @@ class UsersApi extends Component<UsersApiPropsType> {
   onPageChanged = (pageNumber: number) => {
     this.props.setCurrentPage(pageNumber);
     this.props.setToggleIsFetching(true);
-    const axios = require('axios');
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
-        withCredentials: true})
-      .then((response: ResponseType) => {
+    usersApi.getUsers(pageNumber, this.props.pageSize)
+      .then((data: GetUsersDataType) => {
         this.props.setToggleIsFetching(false);
-        this.props.setUsers(response.data.items);
+        this.props.setUsers(data.items);
       });
   };
 
